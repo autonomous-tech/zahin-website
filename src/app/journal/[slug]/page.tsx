@@ -33,6 +33,10 @@ const articles: Record<string, Article> = {
   },
 };
 
+export function generateStaticParams() {
+  return Object.keys(articles).map((slug) => ({ slug }));
+}
+
 interface PageProps { params: Promise<{ slug: string }>; }
 
 export default async function JournalArticle({ params }: PageProps) {
