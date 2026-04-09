@@ -1,5 +1,6 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Button from "@/components/ui/Button";
+import Avatar from "@/components/ui/Avatar";
 
 interface TeamMember { name: string; role: string; bio: string; }
 
@@ -16,9 +17,7 @@ const openRoles = [
 function PersonCard({ member }: { member: TeamMember }) {
   return (
     <div className="bg-white rounded-xl border border-deep-ink/10 p-6 hover:shadow-md transition-shadow">
-      <div className="w-16 h-16 rounded-full bg-pakistan-green/10 flex items-center justify-center mb-4">
-        <span className="text-2xl font-display font-bold text-pakistan-green">{member.name.charAt(0)}</span>
-      </div>
+      <Avatar name={member.name} size={72} className="mb-4" />
       <h3 className="font-display text-lg font-semibold">{member.name}</h3>
       <p className="text-sm text-pakistan-green font-medium">{member.role}</p>
       <p className="mt-3 text-sm text-deep-ink/60 leading-relaxed">{member.bio}</p>
