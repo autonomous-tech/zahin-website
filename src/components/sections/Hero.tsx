@@ -27,7 +27,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <p className="text-lg md:text-xl text-pakistan-green/80 font-body tracking-[0.2em]">ذہین</p>
+        <p className="text-lg md:text-xl text-pakistan-green/80 font-body tracking-[0.2em]"><span lang="ur">ذہین</span></p>
         <h1 className="mt-2 text-6xl md:text-8xl lg:text-9xl font-display font-bold tracking-tight text-deep-ink">zahin</h1>
         <p className="mt-4 text-sm md:text-base uppercase tracking-[0.25em] text-pakistan-green">Building Pakistan&apos;s Intellect</p>
         <p className="mt-8 text-lg md:text-xl text-deep-ink/70 max-w-2xl mx-auto leading-relaxed">

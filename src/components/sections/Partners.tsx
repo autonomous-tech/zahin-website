@@ -5,7 +5,6 @@ import LogoMark from "@/components/ui/LogoMark";
 
 const tiers = [
   { label: "Academic Partners", partners: ["LUMS", "NUST", "FAST-NUCES", "GIKI", "NED University"] },
-  { label: "In Conversation With", partners: ["More partnerships forming — reach out to join"] },
 ];
 
 export default function Partners() {

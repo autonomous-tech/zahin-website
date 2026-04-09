@@ -27,10 +27,8 @@ export default function Research() {
           </div>
         ))}
       </div>
-      <div className="mt-12 flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/10 max-w-md">
-        <span className="font-mono text-sm text-pakistan-green">$</span>
-        <code className="font-mono text-sm text-white/70">github.com/zahin-ai</code>
-        <span className="text-xs text-white/30 ml-auto">Coming soon</span>
+      <div className="mt-12 p-4 rounded-lg bg-white/5 border border-white/10 max-w-md">
+        <p className="text-sm text-white/50">Our repositories and datasets will be published as research progresses. Follow our <a href="/journal" className="text-pakistan-green hover:underline">Journal</a> for updates.</p>
       </div>
     </SectionWrapper>
   );

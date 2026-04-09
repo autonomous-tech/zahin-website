@@ -38,7 +38,7 @@ export default function Nav() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-parchment/80 backdrop-blur-lg shadow-sm" : "bg-transparent"}`}>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-sm text-pakistan-green opacity-60">ذہین</span>
+          <span className="text-sm text-pakistan-green opacity-60" lang="ur">ذہین</span>
           <span className="font-display text-xl font-bold tracking-tight">zahin</span>
         </Link>
 

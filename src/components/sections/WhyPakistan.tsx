@@ -52,7 +52,7 @@ export default function WhyPakistan() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm text-deep-ink/50 italic">Fraction of Silicon Valley cost. Same caliber minds. That&apos;s what Zahin fixes.</p>
+            <p className="mt-6 text-sm text-deep-ink/50 italic">Pakistan&apos;s world-class technical talent represents a significant strategic advantage in building sovereign AI infrastructure at a fraction of global costs.</p>
           </div>
         </div>
       </div>

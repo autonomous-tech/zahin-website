@@ -11,7 +11,7 @@ const comparisonData = [
   { country: "UAE", investment: "$10B+", models: "Falcon" },
   { country: "Saudi Arabia", investment: "$6B+", models: "ALLaM" },
   { country: "India", investment: "$2B+", models: "Krutrim, Bhashini" },
-  { country: "Pakistan", investment: "$1B", models: "None" },
+  { country: "Pakistan", investment: "~$1B*", models: "None" },
 ];
 
 const languages = [
@@ -70,6 +70,7 @@ export default function Crisis() {
               </div>
             </div>
           </div>
+          <p className="mt-4 text-xs text-white/30 italic">* Pakistan&apos;s $1B figure represents total national technology investment, not AI-specific funding. AI-specific allocation remains minimal.</p>
 
           <div className="mt-16 text-center">
             <div className="text-6xl md:text-7xl font-display font-bold text-pakistan-green">

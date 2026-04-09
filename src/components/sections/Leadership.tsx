@@ -96,7 +96,7 @@ export default function Leadership() {
           ))}
         </div>
         <div className="mt-8">
-          <Button href="mailto:founders@zahin.ai" variant="primary">Step Up — Lead With Us</Button>
+          <Button href="mailto:founders@zahin.ai" variant="primary">Inquire About Founding Roles</Button>
         </div>
       </div>
     </SectionWrapper>

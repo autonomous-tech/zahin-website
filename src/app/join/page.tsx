@@ -39,7 +39,7 @@ export default function JoinPage() {
                     <h3 className="font-display text-lg font-semibold">{role.title}</h3>
                     <p className="text-sm text-pakistan-green">{role.type}</p>
                   </div>
-                  <Button href="mailto:careers@zahin.ai" variant="secondary">Apply</Button>
+                  <Button href={`mailto:careers@zahin.ai?subject=Application: ${role.title}`} variant="secondary">Apply</Button>
                 </div>
                 <p className="mt-3 text-sm text-deep-ink/60 leading-relaxed">{role.description}</p>
               </div>
@@ -50,7 +50,7 @@ export default function JoinPage() {
             <p className="mt-3 text-deep-ink/60 leading-relaxed">
               If you&apos;re a Pakistani AI professional working at Google, Meta, OpenAI, or anywhere else — we need your expertise.
             </p>
-            <div className="mt-6"><Button href="mailto:diaspora@zahin.ai" variant="primary">Get Involved</Button></div>
+            <div className="mt-6"><Button href="mailto:diaspora@zahin.ai?subject=Diaspora Contributor — Interest" variant="primary">Get Involved</Button></div>
           </div>
         </div>
       </section>
