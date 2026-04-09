@@ -24,6 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zahin.ai"),
   title: "Zahin — Building Pakistan's Intellect",
   description:
     "Pakistan has 240 million people and zero sovereign AI. Zahin is building Pakistan's own AI models — starting with Pakistani languages, for Pakistani needs.",
@@ -32,6 +33,11 @@ export const metadata: Metadata = {
     description:
       "Pakistan has 240 million people and zero sovereign AI. We're changing that.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zahin — Sovereign AI for Pakistan",
+    description: "Pakistan has 240 million people and zero sovereign AI. We're changing that.",
   },
 };
 
