@@ -42,6 +42,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
           <p>&copy; {new Date().getFullYear()} Zahin. Non-profit sovereign AI initiative.</p>
+          <a href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</a>
           <p>Founded by <a href="https://autonomoustech.ca" className="hover:text-white/60 transition-colors">Autonomous Technologies</a></p>
         </div>
       </div>

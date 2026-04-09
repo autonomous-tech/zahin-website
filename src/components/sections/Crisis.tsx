@@ -26,7 +26,7 @@ export default function Crisis() {
   return (
     <SectionWrapper id="crisis" dark>
       <div className="relative">
-        <Image src="/images/crisis-data-streams.png" alt="" fill className="object-cover opacity-10 rounded-xl" />
+        <Image src="/images/crisis-data-streams.webp" alt="" fill className="object-cover opacity-10 rounded-xl" />
         <TessellationCanvas opacity={0.03} cellSize={100} numPoints={12} className="text-white" />
         <div className="relative z-10">
           <p className="text-sm uppercase tracking-[0.3em] text-pakistan-green mb-4">The Crisis</p>

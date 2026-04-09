@@ -2,6 +2,11 @@ import TessellationCanvas from "@/components/geometry/TessellationCanvas";
 import Button from "@/components/ui/Button";
 import StarPattern from "@/components/geometry/StarPattern";
 
+export const metadata = {
+  title: "Join Zahin — Open Positions in Sovereign AI Research",
+  description: "Researchers, engineers, linguists, and builders — join the team building Pakistan's sovereign AI. Positions in Karachi and remote.",
+};
+
 const roles = [
   { title: "AI Research Scientist", type: "Full-time · Karachi", description: "Lead fine-tuning and evaluation of Pakistani language models." },
   { title: "ML Engineer", type: "Full-time · Karachi", description: "Build training infrastructure and deployment pipelines." },

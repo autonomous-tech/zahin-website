@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import StarPattern from "@/components/geometry/StarPattern";
 
 interface Article { title: string; date: string; category: string; readingTime: string; paragraphs: { type: "p" | "h2" | "ul"; content: string; items?: string[] }[]; }
@@ -32,6 +33,16 @@ const articles: Record<string, Article> = {
     ],
   },
 };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articles[slug];
+  if (!article) return { title: "Article Not Found — Zahin" };
+  return {
+    title: `${article.title} — Zahin`,
+    description: article.paragraphs.find(p => p.type === "p")?.content.slice(0, 160) || "",
+  };
+}
 
 export function generateStaticParams() {
   return Object.keys(articles).map((slug) => ({ slug }));

@@ -1,6 +1,11 @@
 import Link from "next/link";
 import StarPattern from "@/components/geometry/StarPattern";
 
+export const metadata = {
+  title: "Journal — Zahin",
+  description: "Research updates, position papers, and thinking on sovereign AI for Pakistan.",
+};
+
 interface JournalEntry { slug: string; title: string; excerpt: string; date: string; category: string; readingTime: string; }
 
 const entries: JournalEntry[] = [

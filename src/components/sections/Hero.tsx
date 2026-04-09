@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <Image
-        src="/images/hero-pakistan-tech.png"
+        src="/images/hero-pakistan-tech.webp"
         alt=""
         fill
         className="object-cover opacity-10"
