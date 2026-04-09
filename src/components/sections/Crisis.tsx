@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import TessellationCanvas from "@/components/geometry/TessellationCanvas";
@@ -10,7 +11,7 @@ const comparisonData = [
   { country: "UAE", investment: "$10B+", models: "Falcon" },
   { country: "Saudi Arabia", investment: "$6B+", models: "ALLaM" },
   { country: "India", investment: "$2B+", models: "Krutrim, Bhashini" },
-  { country: "Pakistan", investment: "$0", models: "None" },
+  { country: "Pakistan", investment: "$1B", models: "None" },
 ];
 
 const languages = [
@@ -25,6 +26,7 @@ export default function Crisis() {
   return (
     <SectionWrapper id="crisis" dark>
       <div className="relative">
+        <Image src="/images/crisis-data-streams.png" alt="" fill className="object-cover opacity-10 rounded-xl" />
         <TessellationCanvas opacity={0.03} cellSize={100} numPoints={12} className="text-white" />
         <div className="relative z-10">
           <p className="text-sm uppercase tracking-[0.3em] text-pakistan-green mb-4">The Crisis</p>
