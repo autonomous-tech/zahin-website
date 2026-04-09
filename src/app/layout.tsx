@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import Nav from "@/components/layout/Nav";
+import Footer from "@/components/layout/Footer";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -21,11 +23,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Khirad — Building Pakistan's Intellect",
+  title: "Zahin — Building Pakistan's Intellect",
   description:
-    "Pakistan has 240 million people and zero sovereign AI. Khirad is building Pakistan's own AI models — starting with Pakistani languages, for Pakistani needs.",
+    "Pakistan has 240 million people and zero sovereign AI. Zahin is building Pakistan's own AI models — starting with Pakistani languages, for Pakistani needs.",
   openGraph: {
-    title: "Khirad — Sovereign AI for Pakistan",
+    title: "Zahin — Sovereign AI for Pakistan",
     description:
       "Pakistan has 240 million people and zero sovereign AI. We're changing that.",
     type: "website",
@@ -42,7 +44,11 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
