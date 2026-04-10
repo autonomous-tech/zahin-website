@@ -196,9 +196,9 @@ export const articles: Article[] = [
     slug: "choosing-base-model-pakistani-languages",
     title: "Choosing the Right Base Model for Pakistani Languages: LLaMA vs Gemma vs Qwen and Beyond",
     excerpt:
-      "We evaluated every major open-weight model for fine-tuning on Urdu, Punjabi, Pashto, Sindhi, and Balochi. Here's what we found — and what surprised us.",
+      "Before writing a single line of training code, we surveyed every major open-weight model for Pakistani language fine-tuning. Here's what the research says — and what surprised us.",
     description:
-      "A comprehensive technical comparison of open-weight LLMs for Pakistani language fine-tuning. Covers LLaMA 3.1, Gemma 4, Qwen3, Falcon-H1, Jais 2, Mistral, BLOOM, and Aya — with tokenizer benchmarks, licensing analysis, cost estimates, and real-world fine-tuning results.",
+      "A research survey of open-weight LLMs for Pakistani language fine-tuning. Covers LLaMA 3.1, Gemma 4, Qwen3, Falcon-H1, Jais 2, Mistral, BLOOM, and Aya — with tokenizer analysis, licensing comparison, cost estimates, and published fine-tuning results from Qalb, Alif, and UrduLLaMA.",
     date: "2026-04-10",
     dateModified: "2026-04-10",
     category: "Research",
@@ -213,7 +213,7 @@ export const articles: Article[] = [
       {
         question: "Which open-source model is best for Urdu language AI?",
         answer:
-          "As of early 2026, LLaMA 3.1 8B has the strongest track record for Urdu. The Qalb project achieved a 90.34 weighted average score by fine-tuning LLaMA 3.1 8B with continued pre-training on 1.84 billion Urdu tokens. Qwen3 is a strong alternative with explicit Urdu support, Apache 2.0 licensing, and a 72.0 zero-shot score on Urdu reasoning benchmarks.",
+          "As of early 2026, LLaMA 3.1 8B has the strongest track record for Urdu — it's the only model with published fine-tuning results. The Qalb project scored 90.34 by fine-tuning it with continued pre-training on 1.84 billion Urdu tokens. Qwen is a promising alternative: Qwen2.5-7B scored 72.0 on Urdu zero-shot (Qwen3 not yet benchmarked), with Apache 2.0 licensing and documented South Asian language support.",
       },
       {
         question: "How much does it cost to fine-tune an LLM for Pakistani languages?",
@@ -228,7 +228,7 @@ export const articles: Article[] = [
       {
         question: "Is Gemma or LLaMA better for Pakistani languages?",
         answer:
-          "Both have strengths. LLaMA 3.1 8B has proven results (Qalb, Alif, UrduLLaMA) and a mature fine-tuning ecosystem. Gemma 4 has a larger tokenizer vocabulary (256K vs 128K) and a fully permissive Apache 2.0 license, but less real-world validation for Urdu. Qwen3 is emerging as a third option with the broadest South Asian language coverage of any model. The best choice depends on licensing needs and whether you prioritize proven results vs. broader language coverage.",
+          "As of April 2026, only LLaMA 3.1 8B has published fine-tuning results for Urdu (Qalb, Alif, UrduLLaMA). Gemma 4 has a larger tokenizer (256K vs 128K) and Apache 2.0 licensing but no published Urdu benchmarks. Qwen2.5 showed a stronger Urdu zero-shot baseline than LLaMA but hasn't been fine-tuned at scale. The honest answer is: we don't know yet which is best after fine-tuning — only LLaMA has been tested.",
       },
       {
         question: "Can AI models handle Nastaliq script and Urdu diacritics?",
@@ -250,7 +250,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "When we started building Zahin, we faced a deceptively simple question: which open-weight model should we fine-tune for Pakistani languages? The answer turned out to be far more complex than we expected. Over the past months, we've evaluated every major open-weight model against a specific set of requirements: Arabic-script tokenization quality, multilingual pre-training coverage, licensing terms, fine-tuning feasibility, deployment on constrained hardware — and most importantly — real-world results on Urdu and related languages.",
+          "Before we write a single line of training code, we need to answer a foundational question: which open-weight model should Zahin fine-tune for Pakistani languages? To answer it, we surveyed every major open-weight model against a specific set of requirements: Arabic-script tokenization quality, multilingual pre-training coverage, licensing terms, fine-tuning feasibility on constrained hardware, and — most importantly — published results on Urdu and related languages from other research teams.",
       },
       {
         type: "callout",
@@ -260,7 +260,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "The research we present here draws on published benchmarks, academic papers (Qalb, Alif, UrduLLaMA), model documentation, and our own testing. We've tried to be rigorous and honest — including about the limitations of our initial assumptions.",
+          "This article is a literature review, not original research. We have not fine-tuned or benchmarked any model ourselves — that's the next step. What follows draws on published benchmarks, academic papers (Qalb, Alif, UrduLLaMA), model documentation, and publicly available evaluations. Where we estimate numbers (particularly tokenizer fertility for Urdu), we say so explicitly.",
       },
 
       { type: "h2", content: "The Infrastructure Reality: Why Size Matters for Pakistan" },
@@ -272,7 +272,7 @@ export const articles: Article[] = [
       {
         type: "callout",
         content:
-          "A 70B parameter model that scores 95% on benchmarks but requires $50,000 in cloud compute to fine-tune and a $10,000/month GPU server to deploy is useless for Pakistan. A 4B model that scores 80% but runs on a $200 consumer GPU is transformative.",
+          "A 70B parameter model that scores 95% on benchmarks but requires $50,000 in cloud compute to fine-tune and a $10,000/month GPU server to deploy is useless for Pakistan. A 4B model that scores 80% but runs on a $300 consumer GPU is transformative.",
       },
       {
         type: "p",
@@ -397,25 +397,30 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Qwen3 is the surprise of this comparison. Released April 2025 with Apache 2.0 licensing, it offers the broadest South Asian language coverage of any model we tested. The Qwen3 Embedding series explicitly confirms support for Urdu, Punjabi, Sindhi, Bengali, Gujarati, and several other South Asian languages — a list that no other model matches.",
+          "Qwen3 is the surprise of this comparison. Released April 2025 with Apache 2.0 licensing, it appears to offer the broadest South Asian language coverage of any model we reviewed. The Qwen3 Embedding model's documentation explicitly lists Urdu, Punjabi, Sindhi, Bengali, and Gujarati among its supported languages. A caveat: this is the Embedding model's language list, not necessarily the generative LLM's training data — though the 119-language pre-training scope of Qwen3 suggests substantial overlap.",
       },
       {
         type: "p",
         content:
-          "The quantitative signal is equally strong. In the Qalb benchmark evaluation, Qwen2.5-7B-Instruct scored 72.0 on Urdu reasoning tasks zero-shot — compared to LLaMA 3.1 8B Instruct's 45.7. That's a 26.3-point advantage before any fine-tuning. If Qwen's base performance is that much stronger, fine-tuning it should produce even better results — though this hasn't been tested yet at the scale of Qalb or Alif.",
+          "The quantitative signal is promising but indirect. In the Qalb benchmark evaluation, Qwen2.5-7B-Instruct (the previous generation, not Qwen3) scored 72.0 on Urdu reasoning tasks zero-shot — compared to LLaMA 3.1 8B Instruct's 45.7. That's a 26.3-point advantage before any fine-tuning. Qwen3 may perform better or differently, but this hasn't been benchmarked on Urdu yet. And crucially, no one has fine-tuned any Qwen model for Urdu at the scale of Qalb or Alif — so we don't know whether Qwen's stronger baseline translates to a stronger fine-tuned result.",
       },
       {
         type: "ul",
         content: "",
         items: [
-          "Language coverage: Explicitly confirms Urdu, Punjabi, Sindhi — broadest South Asian support",
-          "Zero-shot Urdu: 72.0 (vs LLaMA 3.1's 45.7) — strongest baseline before fine-tuning",
+          "Language coverage: Qwen3 Embedding docs confirm Urdu, Punjabi, Sindhi — broadest South Asian support if this extends to the generative models",
+          "Zero-shot Urdu: Qwen2.5-7B scored 72.0 (vs LLaMA 3.1's 45.7). Qwen3 not yet benchmarked on Urdu",
           "License: Apache 2.0 — fully permissive",
           "Sizes: 0.6B to 235B (MoE), dense models up to 32B. The 0.6B, 1.7B, and 4B variants are practical for deployment on consumer hardware and even mobile devices",
           "Deployment advantage: Qwen3-4B can run quantized on 8GB VRAM — that's an RTX 3060 or even a laptop GPU. The 0.6B model runs on CPUs. For a country where most compute is consumer-grade, this range matters enormously",
           "Gap: No published Urdu fine-tuning project at Qalb/Alif scale yet",
           "Ecosystem: Supported by Axolotl, LLaMA-Factory, Unsloth, HuggingFace PEFT",
         ],
+      },
+      {
+        type: "p",
+        content:
+          "A sovereignty note: Qwen3 is built by Alibaba, a company subject to Chinese national security laws. Apache 2.0 means the weights are freely downloadable and irrevocable — once you have them, no one can take them back. But future model updates, bug fixes, and community ecosystem support could be affected by geopolitical shifts between China and Pakistan. This is the same category of risk we flag for Meta (LLaMA) and Google (Gemma). For a sovereign AI initiative, no foreign model is truly free of geopolitical dependency — which is why Zahin's long-term goal is an indigenous model.",
       },
       { type: "h3", content: "Falcon-H1 (TII, UAE)" },
       {
@@ -434,7 +439,7 @@ export const articles: Article[] = [
         items: [
           "Urdu: Native training language (one of 18) — not a fine-tuned afterthought",
           "Architecture: Hybrid Mamba-Transformer — significantly more efficient at inference than pure transformers, with linear (not quadratic) scaling on long sequences. This is a major advantage for deployment on constrained hardware",
-          "Performance: Falcon-H1-34B rivals Qwen3-32B and LLaMA 3.3-70B at half the size. The 0.5B model matches typical 2024-era 7B models — remarkable efficiency",
+          "Performance: Falcon-H1-34B rivals Qwen3-32B and LLaMA 3.3-70B at half the size on English benchmarks. The 0.5B model reportedly matches 2024-era 7B models on English tasks — though performance on Urdu is unvalidated",
           "Deployment: The Mamba architecture's linear attention means Falcon-H1 models run faster and use less memory at inference than equivalently-sized transformers. The 3B and 7B models are practical on consumer GPUs",
           "License: TII Falcon License — 10% royalty above $1M revenue, separate cloud hosting license required",
           "Relevance: High for Urdu/Arabic; Pashto, Sindhi, Balochi not in the 18 native languages",
@@ -507,7 +512,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "We compiled tokenizer fertility data from published research to quantify the efficiency gap. The numbers explain why model choice has such outsized impact for Pakistani languages.",
+          "We surveyed published tokenizer fertility research to estimate the efficiency gap. Direct Urdu fertility benchmarks are scarce — most numbers below are proxied from Arabic, Hindi, or Ukrainian studies on the same tokenizers. We flag estimates explicitly.",
       },
       {
         type: "ul",
@@ -538,7 +543,7 @@ export const articles: Article[] = [
         type: "ul",
         content: "License comparison for key models:",
         items: [
-          "Apache 2.0 (Gemma 4, Qwen3, Jais 2, Mistral Large 3, Mixtral) — Fully permissive. Fine-tune, redistribute, commercialize without restriction. Best for sovereign AI.",
+          "Apache 2.0 (Gemma 4, Qwen3, Jais 2, Mistral Large 3, Mixtral) — Fully permissive. Fine-tune, redistribute, commercialize without restriction. Irrevocable once downloaded. Does not guarantee future updates or community support from the upstream company.",
           "Llama Community License (LLaMA 3.1/4) — Permits commercial use up to 700M MAU. Competitor clause prohibits building Meta-competing products. Fine-tuned weights must use 'Llama' prefix.",
           "TII Falcon License (Falcon-H1) — 10% royalty on revenue exceeding $1M. Separate license for cloud/API hosting. Not OSI-approved.",
           "Research License (Mistral Saba) — Non-commercial only. Commercial fine-tuning requires separate agreement.",
@@ -556,7 +561,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Pakistan's GDP per capita is $1,500. The average software developer earns $6,000-$12,000/year. An H100 GPU costs more than a house in most of the country. Any AI strategy that requires Western-scale infrastructure is not a strategy — it's a fantasy. We need to be ruthlessly practical about what's affordable, both for training and for ongoing deployment.",
+          "Pakistan has talented engineers and growing technical institutions, but compute infrastructure remains scarce. GDP per capita is $1,500. Most university AI labs operate with one or two consumer GPUs. There is no national AI compute facility. Any strategy that assumes Western-scale infrastructure will fail before it starts. We need to be practical about what's affordable — both for one-time training and for ongoing deployment.",
       },
       {
         type: "h3",
@@ -580,15 +585,15 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Training is a one-time cost. Deployment is forever. A model that costs $25K to train but $10,000/month to serve is unaffordable for Pakistan. The deployment cost depends almost entirely on model size and quantization quality.",
+          "Training costs recur — you retrain as new data arrives, base models improve, and requirements change — but deployment costs run continuously and at higher volume. A model that costs $25K to train but $10,000/month to serve is unaffordable for Pakistan. The deployment cost depends almost entirely on model size and quantization quality.",
       },
       {
         type: "ul",
         content: "Deployment hardware requirements (4-bit quantized inference):",
         items: [
-          "0.6B-2B models — Run on CPU or any GPU. Even a Raspberry Pi 5 or a $300 laptop can serve these. Practical for offline/edge deployment in rural areas.",
-          "4B models — Run on 8GB VRAM (RTX 3060, laptop GPU). A $500 machine can serve this. Realistic for district-level deployment.",
-          "7B-8B models — Run on 16-24GB VRAM (RTX 4090, or $200/month cloud instance). Feasible for city-level or university deployment.",
+          "0.6B-2B models — Run on CPU or any GPU. Laptops and low-end desktops can serve these, though throughput will be limited (likely 5-15 tokens/second on CPU). Practical for offline/edge use cases where latency is acceptable.",
+          "4B models — Require ~3-4GB VRAM quantized (RTX 3060 8GB or equivalent). A desktop with a mid-range GPU can serve this.",
+          "7B-8B models — Require 6-8GB VRAM quantized, 16-24GB for comfortable headroom (RTX 4090, or ~$200/month cloud instance). Feasible for university or institutional deployment.",
           "13B models — Run on 24-40GB VRAM (A100 40GB). Requires cloud or institutional hardware. $300-500/month.",
           "70B models — Run on 48-80GB VRAM (requires A100 80GB or multi-GPU). $1,000-3,000/month cloud. Not practical for Pakistani institutions.",
         ],
@@ -596,7 +601,7 @@ export const articles: Article[] = [
       {
         type: "callout",
         content:
-          "For Pakistan, the sweet spot is 4B-8B parameter models with 4-bit quantization. They deliver strong performance while running on hardware that Pakistani universities, hospitals, and government offices can actually afford. Smaller models (0.6B-2B) enable offline deployment on phones and edge devices — critical for the 60% of Pakistan's population living in rural areas with limited or no internet.",
+          "For Pakistan, the sweet spot appears to be 4B-8B parameter models with 4-bit quantization — though this is a hypothesis we haven't validated yet. If the quality holds after quantization, these models could run on hardware that Pakistani universities and government offices can afford. Smaller models (0.6B-2B) could enable offline deployment on phones and edge devices — relevant for the roughly 63% of Pakistan's population living in rural areas (Pakistan Bureau of Statistics, 2023 census).",
       },
       {
         type: "p",
@@ -606,7 +611,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "But we're also investigating a parallel track: fine-tuning 4B models (Qwen3-4B, Gemma 4B) that sacrifice some benchmark points for dramatically cheaper deployment. A 4B model that runs on a $500 machine and covers 80% of use cases may be more impactful than an 8B model that requires a $2,000 GPU and covers 90%.",
+          "We also want to explore a parallel track: fine-tuning 4B models (Qwen3-4B, Gemma 4B) that sacrifice some benchmark points for dramatically cheaper deployment. No one has published Urdu fine-tuning results at 4B scale yet, so this is an open question. But if a 4B model can cover 80% of use cases on consumer hardware, it may be more impactful than an 8B model that requires a dedicated GPU.",
       },
 
       { type: "h2", content: "The Critical Gaps: What No Model Handles Well" },
@@ -686,7 +691,7 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "For Zahin specifically, we're pursuing a multi-model evaluation: testing Qwen3, Gemma 4, and LLaMA 3.1 head-to-head on our target languages before committing to a base. The licensing landscape favors Apache 2.0 models (Qwen3, Gemma 4, Jais 2) for a truly sovereign initiative — we won't lock ourselves into any single vendor. We'll publish our comparative fine-tuning results as they develop.",
+          "For Zahin, the next step is hands-on evaluation: running Qwen3, Gemma 4, and LLaMA 3.1 head-to-head on our target languages before committing to a base. The licensing landscape favors Apache 2.0 models (Qwen3, Gemma 4, Jais 2) for a truly sovereign initiative. We'll publish our first benchmarking results in a follow-up article.",
       },
 
       { type: "h2", content: "Summary Comparison Table" },
@@ -697,23 +702,63 @@ export const articles: Article[] = [
       },
       {
         type: "ul",
-        content: "Model rankings for Pakistani language work (considering compute constraints):",
+        content: "Proven for Urdu (published fine-tuning results exist):",
         items: [
-          "Qwen3 (Apache 2.0) — Best overall. Broadest South Asian coverage, 72.0 Urdu zero-shot, Apache 2.0. Sizes from 0.6B to 32B mean you can match the model to your hardware. 4B variant is the deployment sweet spot for Pakistan.",
-          "LLaMA 3.1 8B (Llama Community) — Most proven for Urdu (Qalb 90.34, Alif 87.1). 8B runs quantized on consumer GPUs. Restrictive license is the main drawback.",
-          "Falcon-H1 (TII License) — Urdu natively trained. Mamba architecture is significantly more efficient at inference than transformers — a real advantage for constrained deployment. 0.5B model matches 2024-era 7B quality. Royalty clause limits commercial use.",
-          "Gemma 4 (Apache 2.0) — Best tokenizer vocabulary (256K), E2B variant runs on phones. Limited real-world Urdu validation.",
-          "Jais 2 (Apache 2.0) — Deepest Arabic foundation. Best for Arabic-Urdu cross-transfer. The 8B variant is deployable on consumer hardware.",
-          "Mistral Saba (Research License) — Strong Urdu/Arabic at 24B, but 24B is heavy for Pakistani deployment and research license blocks commercial use.",
-          "Aya / Tiny Aya Fire (Mixed) — Tiny Aya Fire (3.35B) includes Urdu/Punjabi and is edge-deployable, but CC-BY-NC license.",
-          "BLOOM (RAIL) — Dormant since 2022. 176B is completely impractical for Pakistan. Historical interest only.",
+          "LLaMA 3.1 8B (Llama Community) — Only model with published Urdu fine-tuning results: Qalb (90.34), Alif (87.1), UrduLLaMA. 8B runs quantized on consumer GPUs. Restrictive license is the main drawback.",
+        ],
+      },
+      {
+        type: "ul",
+        content: "Promising but unproven for Urdu (strong signals, no published fine-tuning results):",
+        items: [
+          "Qwen3 (Apache 2.0) — Broadest documented South Asian language coverage. Qwen2.5 scored 72.0 on Urdu zero-shot (best baseline). Apache 2.0. Sizes from 0.6B to 32B fit any hardware. Unproven at fine-tuning scale. Alibaba origin carries geopolitical risk.",
+          "Falcon-H1 (TII License) — Urdu natively trained. Mamba architecture is more efficient at inference than equivalently-sized transformers. Royalty clause limits commercial use.",
+          "Gemma 4 (Apache 2.0) — Best tokenizer vocabulary (256K), small variants designed for edge/mobile. No published Urdu fine-tuning results.",
+          "Jais 2 (Apache 2.0) — Deepest Arabic foundation (600B tokens). Best for Arabic-Urdu cross-transfer. The 8B variant is deployable on consumer hardware.",
+        ],
+      },
+      {
+        type: "ul",
+        content: "Not recommended for Pakistani language work:",
+        items: [
+          "Mistral Saba (Research License) — Strong Urdu/Arabic at 24B, but research license blocks commercial fine-tuning and 24B is heavy for Pakistani deployment.",
+          "Aya / Tiny Aya Fire (Mixed) — Aya Expanse excludes Urdu entirely. Tiny Aya Fire (3.35B) includes Urdu/Punjabi but CC-BY-NC blocks commercial use.",
+          "BLOOM (RAIL) — Dormant since 2022. Outperformed by every 2024+ model. 176B is impractical for Pakistan.",
         ],
       },
 
+      { type: "h2", content: "Limitations of This Analysis" },
       {
         type: "p",
         content:
-          "The landscape is evolving fast. Six months ago, LLaMA 3.1 was the only serious option for Urdu. Today, Qwen3 and Gemma 4 have changed the calculus significantly. We'll continue publishing our findings as we test these models against our specific requirements. Follow this journal for updates.",
+          "We want to be transparent about what this article is and isn't. This is a literature review — we have not fine-tuned, benchmarked, or deployed any of these models ourselves. Every data point comes from published papers, model documentation, or publicly available evaluations. Tokenizer fertility numbers for Urdu are estimated from Arabic and other script proxies, not measured directly. The Qwen3 language coverage claims are based on its Embedding model documentation, which may not perfectly reflect the generative model's training data. Hardware cost estimates are based on published cloud pricing and may not reflect Pakistani market conditions.",
+      },
+      {
+        type: "p",
+        content:
+          "We also acknowledge that the researchers who have actually built Urdu LLMs — the Qalb team at Auburn University, the Alif team through Meta's LARGE initiative, the UrduLLaMA team, and Urdu NLP researchers at Pakistani institutions including NUST, LUMS, ITU, and COMSATS — have done the hard empirical work that this article synthesizes. Zahin's contribution here is the synthesis and the Pakistan-specific deployment lens, not the underlying research.",
+      },
+      { type: "h2", content: "What We'll Test Next" },
+      {
+        type: "p",
+        content:
+          "This research survey is Step 1. Step 2 is hands-on benchmarking. Our planned evaluation will:",
+      },
+      {
+        type: "ol",
+        content: "",
+        items: [
+          "Run tokenizer fertility tests on all candidate models using a standardized Urdu, Punjabi, and Sindhi corpus — replacing the proxy estimates in this article with real numbers.",
+          "Fine-tune Qwen3-4B, Qwen3-8B, LLaMA 3.1 8B, and Gemma 4 7B on identical Urdu datasets using the same QLoRA configuration — producing an apples-to-apples comparison that doesn't currently exist.",
+          "Evaluate 4-bit quantized inference quality across all candidates — testing whether smaller models maintain usable quality after quantization for Pakistani language tasks specifically.",
+          "Measure actual inference speed and memory usage on consumer hardware (RTX 3060, RTX 4090) and CPU-only environments — producing deployment-realistic benchmarks for Pakistani infrastructure.",
+          "Publish all results, code, and evaluation data openly so other Pakistani researchers can reproduce and extend the work.",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "We'll publish the results in a follow-up article. The landscape is evolving fast — the model that wins our benchmarks today may not be the best choice in six months. But the methodology and evaluation framework will remain useful regardless. Follow this journal for updates.",
       },
     ],
   },
