@@ -6,17 +6,17 @@ import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import TessellationCanvas from "@/components/geometry/TessellationCanvas";
 
 const comparisonData = [
-  { country: "United States", investment: "$67B+", models: "GPT, Claude, Gemini, Llama" },
-  { country: "China", investment: "$15B+", models: "DeepSeek, Qwen, Yi" },
-  { country: "UAE", investment: "$10B+", models: "Falcon" },
-  { country: "Saudi Arabia", investment: "$6B+", models: "ALLaM" },
-  { country: "India", investment: "$2B+", models: "Krutrim, Bhashini" },
-  { country: "Pakistan", investment: "~$1B*", models: "None" },
+  { country: "United States", investment: "$109B+", models: "GPT, Claude, Gemini, Llama" },
+  { country: "China", investment: "$84–98B", models: "DeepSeek, Qwen, Yi" },
+  { country: "UAE", investment: "$148B+", models: "Falcon" },
+  { country: "Saudi Arabia", investment: "$14.9B+", models: "ALLaM" },
+  { country: "India", investment: "$1.25B", models: "Krutrim, Bhashini" },
+  { country: "Pakistan", investment: "$1B*", models: "None" },
 ];
 
 const languages = [
   { name: "Urdu", speakers: "230M+", coverage: "Minimal" },
-  { name: "Punjabi", speakers: "150M+", coverage: "Almost none" },
+  { name: "Punjabi", speakers: "113M+", coverage: "Almost none" },
   { name: "Sindhi", speakers: "30M+", coverage: "None" },
   { name: "Pashto", speakers: "60M+", coverage: "Minimal" },
   { name: "Balochi", speakers: "8M+", coverage: "None" },
@@ -35,8 +35,8 @@ export default function Crisis() {
           </h2>
           <p className="mt-6 text-lg text-white/60 max-w-2xl leading-relaxed">
             Every model that understands Pakistan&apos;s economy, educates our children, diagnoses our patients,
-            and processes our legal system is owned by someone else. Foreign models control our narrative, our
-            cultural identity, and our future.
+            and processes our legal system is built, hosted, and governed outside Pakistan. Our digital
+            infrastructure depends entirely on systems we don&apos;t control.
           </p>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -70,7 +70,7 @@ export default function Crisis() {
               </div>
             </div>
           </div>
-          <p className="mt-4 text-xs text-white/30 italic">* Pakistan&apos;s $1B figure represents total national technology investment, not AI-specific funding. AI-specific allocation remains minimal.</p>
+          <p className="mt-4 text-xs text-white/30 italic">* Pakistan $1B target by 2030 (PM Shehbaz Sharif, Indus AI Week, Feb 2026). Other figures: Stanford HAI 2025 (US); Bank of America (China); CSIS (UAE); Saudi MCIT LEAP25; PIB India. Speaker counts are L1+L2, global (Ethnologue, Census data).</p>
 
           <div className="mt-16 text-center">
             <div className="text-6xl md:text-7xl font-display font-bold text-pakistan-green">

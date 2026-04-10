@@ -6,8 +6,8 @@ import TessellationCanvas from "@/components/geometry/TessellationCanvas";
 
 const stats = [
   { value: 240, suffix: "M", label: "Population", detail: "6th largest in the world" },
-  { value: 75, suffix: "%", label: "Under 35", detail: "Youngest demographic in the region" },
-  { value: 25000, suffix: "+", label: "CS Graduates / Year", detail: "From LUMS, NUST, FAST, GIKI & more" },
+  { value: 64, suffix: "%", label: "Under 30", detail: "One of the youngest populations globally" },
+  { value: 36500, suffix: "+", label: "CS Graduates / Year", detail: "From HEC-accredited universities alone" },
 ];
 
 const diaspora = [
@@ -44,7 +44,7 @@ export default function WhyPakistan() {
             ))}
           </div>
           <div className="mt-16 p-8 rounded-xl bg-white border border-deep-ink/10">
-            <p className="text-sm uppercase tracking-[0.2em] text-deep-ink/40 mb-4">Pakistani AI talent currently at</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-deep-ink/40 mb-4">Pakistani talent working at</p>
             <div className="flex flex-wrap items-center gap-8 mt-2">
               {diaspora.map((company) => (
                 <div key={company.name} className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity" title={company.name}>
@@ -52,7 +52,7 @@ export default function WhyPakistan() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm text-deep-ink/50 italic">Pakistan&apos;s world-class technical talent represents a significant strategic advantage in building sovereign AI infrastructure at a fraction of global costs.</p>
+            <p className="mt-6 text-sm text-deep-ink/50 italic">Thousands of Pakistani engineers and researchers power the world&apos;s leading AI labs. Zahin&apos;s mission: give them a reason to build for home.</p>
           </div>
         </div>
       </div>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <rect width="200" height="60" fill="none"/>
+  <!-- GIKI emblem simplified -->
+  <g transform="translate(10,6)">
+    <polygon points="24,2 44,14 44,34 24,46 4,34 4,14" fill="none" stroke="#0D47A1" stroke-width="2.5"/>
+    <text x="24" y="29" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-weight="bold" fill="#0D47A1">G</text>
+  </g>
+  <text x="58" y="28" font-family="Georgia,serif" font-size="22" font-weight="bold" fill="#0D47A1" letter-spacing="0.1em">GIKI</text>
+  <text x="58" y="44" font-family="'DM Sans',system-ui,sans-serif" font-size="7" fill="#0D47A1" opacity="0.6" letter-spacing="0.03em">Ghulam Ishaq Khan Institute</text>
+</svg>

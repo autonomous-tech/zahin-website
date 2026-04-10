@@ -29,6 +29,10 @@ export default function Hero() {
           <Button href="#fund" variant="primary">Fund the Future</Button>
           <Button href="#vision" variant="secondary">Our Vision</Button>
         </div>
+        <a href="/whitepaper" className="mt-6 inline-flex items-center gap-2 text-sm text-pakistan-green/60 hover:text-pakistan-green transition-colors">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1v10m0 0L4.5 7.5M8 11l3.5-3.5M2 14h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          Download White Paper
+        </a>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-parchment to-transparent z-[2]" />

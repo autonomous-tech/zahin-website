@@ -14,6 +14,7 @@ const scrollLinks = [
 ];
 
 const pageLinks = [
+  { label: "White Paper", href: "/whitepaper" },
   { label: "Journal", href: "/journal" },
   { label: "Join", href: "/join" },
 ];

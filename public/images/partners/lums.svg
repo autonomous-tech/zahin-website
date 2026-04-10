@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <rect width="200" height="60" fill="none"/>
+  <!-- LUMS shield simplified -->
+  <g transform="translate(10,8)">
+    <path d="M22 0L0 8v20c0 10 10 16 22 20 12-4 22-10 22-20V8z" fill="#8B1A1A" opacity="0.9"/>
+    <path d="M22 4L4 11v17c0 8 8 13 18 17 10-4 18-9 18-17V11z" fill="none" stroke="#D4AF37" stroke-width="1"/>
+    <text x="22" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-weight="bold" fill="#D4AF37">L</text>
+  </g>
+  <text x="56" y="30" font-family="Georgia,serif" font-size="22" font-weight="bold" fill="#8B1A1A" letter-spacing="0.15em">LUMS</text>
+  <text x="56" y="46" font-family="'DM Sans',system-ui,sans-serif" font-size="7.5" fill="#8B1A1A" opacity="0.6" letter-spacing="0.05em">Lahore University of Management Sciences</text>
+</svg>

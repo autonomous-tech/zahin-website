@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <rect width="200" height="60" fill="none"/>
+  <!-- FAST shield simplified -->
+  <g transform="translate(8,6)">
+    <rect x="2" y="2" width="40" height="44" rx="4" fill="none" stroke="#1B5E20" stroke-width="2.5"/>
+    <line x1="22" y1="8" x2="22" y2="40" stroke="#1B5E20" stroke-width="0.8"/>
+    <line x1="8" y1="24" x2="36" y2="24" stroke="#1B5E20" stroke-width="0.8"/>
+    <text x="22" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#1B5E20">F</text>
+    <text x="22" y="38" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#1B5E20">NU</text>
+  </g>
+  <text x="58" y="26" font-family="Georgia,serif" font-size="20" font-weight="bold" fill="#1B5E20" letter-spacing="0.08em">FAST</text>
+  <text x="58" y="40" font-family="'DM Sans',system-ui,sans-serif" font-size="9" fill="#1B5E20" opacity="0.7" letter-spacing="0.02em">NUCES</text>
+  <text x="58" y="52" font-family="'DM Sans',system-ui,sans-serif" font-size="6.5" fill="#1B5E20" opacity="0.5">National University of Computer &amp; Emerging Sciences</text>
+</svg>

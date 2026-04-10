@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <rect width="200" height="60" fill="none"/>
+  <!-- NUST emblem simplified -->
+  <g transform="translate(10,6)">
+    <circle cx="24" cy="24" r="22" fill="none" stroke="#003366" stroke-width="2.5"/>
+    <circle cx="24" cy="24" r="18" fill="none" stroke="#003366" stroke-width="0.8"/>
+    <text x="24" y="29" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#003366">N</text>
+  </g>
+  <text x="62" y="30" font-family="Georgia,serif" font-size="22" font-weight="bold" fill="#003366" letter-spacing="0.12em">NUST</text>
+  <text x="62" y="46" font-family="'DM Sans',system-ui,sans-serif" font-size="7.5" fill="#003366" opacity="0.6" letter-spacing="0.05em">National University of Sciences &amp; Technology</text>
+</svg>

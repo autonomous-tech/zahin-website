@@ -12,6 +12,7 @@ export default function Footer() {
               <span className="font-display text-xl font-bold text-white">zahin</span>
             </div>
             <p className="text-sm leading-relaxed">Building Pakistan&apos;s sovereign AI. A non-profit initiative incubated by Autonomous Technologies.</p>
+            <p className="text-xs mt-2 text-white/40">SECP registration in progress. Karachi, Pakistan.</p>
           </div>
           <div>
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-4">Navigate</h4>

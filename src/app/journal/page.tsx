@@ -12,7 +12,7 @@ const entries: JournalEntry[] = [
   {
     slug: "why-sovereign-ai",
     title: "Why Pakistan Needs Sovereign AI — And Why Now",
-    excerpt: "Every country without its own AI becomes a data colony. Pakistan has 240 million people, 75% under 35, and zero foundation models.",
+    excerpt: "Every country without its own AI becomes a data colony. Pakistan has 240 million people, 64% under 30, and zero foundation models.",
     date: "2026-04-10", category: "Position Paper", readingTime: "8 min read",
   },
   {
