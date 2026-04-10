@@ -57,7 +57,7 @@ export const articles: Article[] = [
     readingTime: "8 min read",
     author: authors.rizwan,
     tags: ["sovereign-ai", "pakistan", "ai-policy", "national-security", "foundation-models"],
-    relatedSlugs: ["fine-tuning-gemma-pakistani-languages"],
+    relatedSlugs: ["choosing-base-model-pakistani-languages"],
     faqs: [
       {
         question: "What is sovereign AI?",
@@ -77,7 +77,7 @@ export const articles: Article[] = [
       {
         question: "What is Zahin doing about Pakistan's AI gap?",
         answer:
-          "Zahin is a non-profit sovereign AI lab building open-weight foundation models fine-tuned for Pakistan's languages (Urdu, Punjabi, Pashto, Sindhi, Balochi). Phase 1 begins with fine-tuning Google's Gemma model, progressing toward a fully indigenous model called Zahin-1.",
+          "Zahin is a non-profit sovereign AI lab building open-weight foundation models fine-tuned for Pakistan's languages (Urdu, Punjabi, Pashto, Sindhi, Balochi). Phase 1 fine-tunes the best available open-weight models, progressing toward a fully indigenous model called Zahin-1.",
       },
     ],
     blocks: [
@@ -180,7 +180,7 @@ export const articles: Article[] = [
         type: "ol",
         content: "",
         items: [
-          "Phase 1 — Fine-Tune ($50K): Adapt Google's Gemma model for Urdu, Punjabi, Pashto, Sindhi, and Balochi. Build evaluation benchmarks. Open-source everything.",
+          "Phase 1 — Fine-Tune ($50K): Adapt the best open-weight models for Urdu, Punjabi, Pashto, Sindhi, and Balochi. Build evaluation benchmarks. Open-source everything.",
           "Phase 2 — Deploy ($500K, 6–12 months): Build inference infrastructure on Pakistani soil. Partner with universities and government agencies for real-world deployment.",
           "Phase 3 — Zahin-1 ($25M, 18–24 months): Train Pakistan's first indigenous foundation model from scratch — built on Pakistani data, for Pakistani needs, governed by Pakistani institutions.",
         ],
@@ -193,172 +193,446 @@ export const articles: Article[] = [
     ],
   },
   {
-    slug: "fine-tuning-gemma-pakistani-languages",
-    title: "Fine-Tuning Gemma for Pakistani Languages: Our Approach",
+    slug: "choosing-base-model-pakistani-languages",
+    title: "Choosing the Right Base Model for Pakistani Languages: LLaMA vs Gemma vs Qwen and Beyond",
     excerpt:
-      "A technical overview of how we're adapting Google's Gemma model for Urdu, Sindhi, Punjabi, Pashto, and Balochi — and why open-weight models are the right starting point.",
+      "We evaluated every major open-weight model for fine-tuning on Urdu, Punjabi, Pashto, Sindhi, and Balochi. Here's what we found — and what surprised us.",
     description:
-      "Zahin's technical approach to fine-tuning Google's Gemma open-weight model for five Pakistani languages: Urdu, Punjabi, Pashto, Sindhi, and Balochi. Covers data collection, training pipeline, and evaluation methodology.",
+      "A comprehensive technical comparison of open-weight LLMs for Pakistani language fine-tuning. Covers LLaMA 3.1, Gemma 4, Qwen3, Falcon-H1, Jais 2, Mistral, BLOOM, and Aya — with tokenizer benchmarks, licensing analysis, cost estimates, and real-world fine-tuning results.",
     date: "2026-04-10",
     dateModified: "2026-04-10",
     category: "Research",
-    readingTime: "12 min read",
-    author: authors.abdullah,
-    tags: ["gemma", "fine-tuning", "nlp", "urdu", "punjabi", "pashto", "sindhi", "balochi", "open-weight-models"],
+    readingTime: "18 min read",
+    author: authors.rizwan,
+    tags: [
+      "model-comparison", "llama", "gemma", "qwen", "falcon", "jais",
+      "fine-tuning", "urdu", "tokenizer", "open-weight-models", "pakistani-languages",
+    ],
     relatedSlugs: ["why-sovereign-ai"],
     faqs: [
       {
-        question: "What is Gemma and why did Zahin choose it?",
+        question: "Which open-source model is best for Urdu language AI?",
         answer:
-          "Gemma is Google DeepMind's family of open-weight language models, available in 2B, 7B, and 27B parameter sizes. Zahin chose Gemma because it offers state-of-the-art performance with a permissive license that allows fine-tuning and redistribution — critical for an open-source sovereign AI initiative.",
+          "As of early 2026, LLaMA 3.1 8B has the strongest track record for Urdu. The Qalb project achieved a 90.34 weighted average score by fine-tuning LLaMA 3.1 8B with continued pre-training on 1.84 billion Urdu tokens. Qwen3 is a strong alternative with explicit Urdu support, Apache 2.0 licensing, and a 72.0 zero-shot score on Urdu reasoning benchmarks.",
       },
       {
-        question: "Which Pakistani languages is Zahin fine-tuning Gemma for?",
+        question: "How much does it cost to fine-tune an LLM for Pakistani languages?",
         answer:
-          "Zahin is fine-tuning Gemma for five Pakistani languages: Urdu (230M+ speakers), Punjabi written in Shahmukhi script (113M+ speakers), Pashto (60M+ speakers), Sindhi (30M+ speakers), and Balochi (8M+ speakers).",
+          "Fine-tuning a 7B-8B parameter model using QLoRA costs as little as $50-$500 for supervised fine-tuning alone. A full Qalb-scale project (continued pre-training on ~2B tokens plus supervised fine-tuning) costs $15,000-$25,000 in compute, feasible on 4-8 A100 GPUs. A $50K budget can cover Urdu fine-tuning with budget remaining for Pashto and Sindhi adaptation.",
       },
       {
-        question: "How does Zahin collect training data for low-resource Pakistani languages?",
+        question: "What is tokenizer fertility and why does it matter for Urdu?",
         answer:
-          "Zahin uses a four-source pipeline: (1) digitized archives from university libraries and government publications, (2) web-crawled content filtered for quality from news sites and literary portals, (3) community-contributed corpora through partnerships with linguistic departments, and (4) synthetic data generated through controlled translation and paraphrasing from higher-resource languages.",
+          "Tokenizer fertility measures how many tokens a model needs to represent one word. English averages ~1.0 token per word, while Urdu on models like LLaMA 2 (32K vocabulary) can require 3-5 tokens per word. This means Urdu text costs 3-5x more to process, uses context window faster, and degrades generation quality. Models with larger vocabularies (Gemma 256K, Qwen 152K, LLaMA 3 128K) significantly reduce this gap.",
       },
       {
-        question: "Will the fine-tuned models be open source?",
+        question: "Is Gemma or LLaMA better for Pakistani languages?",
         answer:
-          "Yes. All of Zahin's fine-tuned models, training data, evaluation benchmarks, and research papers will be released under open licenses. This is a core commitment — sovereign AI must be transparent and reproducible to earn public trust.",
+          "Both have strengths. LLaMA 3.1 8B has proven results (Qalb, Alif, UrduLLaMA) and a mature fine-tuning ecosystem. Gemma 4 has a larger tokenizer vocabulary (256K vs 128K) and a fully permissive Apache 2.0 license, but less real-world validation for Urdu. Qwen3 is emerging as a third option with the broadest South Asian language coverage of any model. The best choice depends on licensing needs and whether you prioritize proven results vs. broader language coverage.",
+      },
+      {
+        question: "Can AI models handle Nastaliq script and Urdu diacritics?",
+        answer:
+          "This remains a challenge. Most LLM training data contains Naskh-rendered Urdu, not authentic Nastaliq. Urdu diacritical marks (zabar, zer, pesh) are almost always omitted in digitized text, meaning models learn to generate undiacritized output. Sindhi's 52-letter extended Arabic alphabet and Shahmukhi-specific characters also cause tokenizer failures in most models. These issues require targeted data collection and tokenizer evaluation before committing to a base model.",
+      },
+      {
+        question: "Are there any AI models specifically built for Pakistani languages?",
+        answer:
+          "Yes, several have emerged in 2025-2026. Qalb 1.0 (Auburn University) is the current state-of-the-art Urdu LLM, scoring 90.34 across 7 tasks. Alif 1.0 (Meta-funded LARGE initiative) was the first purpose-built Urdu instruction-tuned model. UrduLLaMA 1.0 focuses on machine translation. Qaari 0.1 handles Urdu OCR. However, no dedicated models exist yet for Pashto, Punjabi Shahmukhi, Sindhi, or Balochi.",
       },
     ],
     blocks: [
       {
         type: "p",
         content:
-          "Our first step toward sovereign AI for Pakistan is practical: take the best available open-weight model and fine-tune it for Pakistani languages. This is Phase 1 of Zahin's roadmap — a $50K initiative designed to prove that high-quality, multilingual AI for Pakistan is achievable today.",
+          "When we started building Zahin, we faced a deceptively simple question: which open-weight model should we fine-tune for Pakistani languages? The answer turned out to be far more complex than we expected. Over the past months, we've evaluated every major open-weight model against a specific set of requirements: Arabic-script tokenization quality, multilingual pre-training coverage, licensing terms, fine-tuning feasibility, and — most importantly — real-world results on Urdu and related languages.",
       },
       {
         type: "callout",
         content:
-          "Fine-tuning is the process of adapting a pre-trained AI model to perform well on specific languages, domains, or tasks by training it on additional targeted data — without rebuilding the model from scratch.",
-      },
-      { type: "h2", content: "Why Gemma?" },
-      {
-        type: "p",
-        content:
-          "Choosing the right base model was our first critical decision. We evaluated LLaMA 3 (Meta), Mistral, Qwen 2 (Alibaba), and Gemma 2 (Google DeepMind) across four criteria: multilingual tokenizer quality, licensing terms, fine-tuning ecosystem, and baseline performance on right-to-left scripts.",
+          "This article compares LLaMA 3.1/4, Gemma 3/4, Qwen3, Falcon-H1, Jais 2, Mistral Saba, BLOOM, and Aya for fine-tuning on five Pakistani languages: Urdu (230M+ speakers), Punjabi Shahmukhi (113M+), Pashto (60M+), Sindhi (30M+), and Balochi (8M+).",
       },
       {
         type: "p",
         content:
-          "Gemma emerged as the strongest candidate. Its tokenizer has better coverage of Arabic-script characters (shared by Urdu, Punjabi Shahmukhi, Pashto, Sindhi, and Balochi) compared to LLaMA's primarily Latin-optimized vocabulary. The Gemma license permits fine-tuning, redistribution, and commercial use — essential for an open-source initiative. And Google's investment in multilingual pre-training gives Gemma a meaningful head start on non-English languages.",
+          "The research we present here draws on published benchmarks, academic papers (Qalb, Alif, UrduLLaMA), model documentation, and our own testing. We've tried to be rigorous and honest — including about the limitations of our initial assumptions.",
+      },
+
+      { type: "h2", content: "Why the Base Model Matters More Than You Think" },
+      {
+        type: "p",
+        content:
+          "For high-resource languages like English or Chinese, most modern LLMs perform well enough that the choice of base model is a minor consideration. For low-resource languages like Sindhi or Balochi, it can be the difference between a usable model and one that produces garbage. Three factors dominate: tokenizer quality, pre-training coverage, and licensing.",
+      },
+      {
+        type: "p",
+        content:
+          "Tokenizer quality determines cost and context efficiency. A model that needs 5 tokens to represent one Urdu word will cost 5x more to run, consume its context window 5x faster, and produce lower-quality output because the model's attention is spread across fragmented subwords instead of coherent linguistic units.",
+      },
+
+      { type: "h2", content: "The Tokenizer Problem: Why Most Models Fail on Pakistani Languages" },
+      {
+        type: "p",
+        content:
+          "Every LLM starts by breaking text into tokens — subword units that the model processes internally. English-optimized tokenizers produce roughly 1 token per word. For Urdu on a model like LLaMA 2 (32K vocabulary), the same text can require 3-5 tokens per word. This isn't just an efficiency problem — it's a quality problem. When a single Urdu word is split into 4 meaningless fragments, the model loses the semantic connection between those fragments.",
       },
       {
         type: "ul",
-        content: "Base model comparison for Pakistani languages:",
+        content: "Tokenizer vocabulary sizes across models:",
         items: [
-          "Gemma 2 (7B/27B) — Best Arabic-script tokenization, permissive license, strong multilingual baseline ✓",
-          "LLaMA 3 (8B/70B) — Good overall quality but Latin-biased tokenizer, restrictive commercial terms",
-          "Mistral (7B) — Strong English performance but limited multilingual pre-training",
-          "Qwen 2 (7B/72B) — Good CJK coverage but weak on South Asian scripts",
+          "Gemma 3/4 — 256,000 tokens (largest vocabulary, best script coverage)",
+          "BLOOM — 250,000 tokens (explicitly multilingual, includes Urdu)",
+          "Qwen 2.5/3 — 151,646 tokens (byte-level BPE, strong CJK + emerging South Asian)",
+          "LLaMA 3/3.1/4 — 128,256 tokens (major upgrade from LLaMA 2's 32K, but still Latin-biased)",
+          "Mistral (original) — ~32,000 tokens (English-focused, poor non-Latin coverage)",
         ],
       },
-      { type: "h2", content: "The Language Challenge" },
       {
         type: "p",
         content:
-          "Pakistani languages present a unique set of NLP challenges that go well beyond simple translation. Each language has distinct characteristics that require specialized training approaches.",
+          "Vocabulary size alone doesn't tell the full story. What matters is how many of those tokens represent Arabic-script subwords. Gemma's 256K vocabulary has better coverage of Arabic-script characters, but LLaMA 3's 128K vocabulary — while smaller — has been the foundation for every successful Urdu fine-tuning project to date.",
       },
       {
         type: "h3",
-        content: "Urdu (230M+ speakers)",
+        content: "The Nastaliq and Diacritics Challenge",
       },
       {
         type: "p",
         content:
-          "Urdu is Pakistan's national language and the most resourced of our target languages — but 'most resourced' is relative. Urdu NLP datasets are roughly 1/500th the size of English equivalents. The Nastaliq script poses rendering and tokenization challenges, and Urdu's heavy use of Persian and Arabic loanwords creates vocabulary boundary issues that English-trained tokenizers handle poorly.",
+          "Pakistani languages add complications that even Arabic-aware tokenizers struggle with. Urdu uses Nastaliq script — written diagonally, right-to-left and top-to-bottom — which differs significantly from the Naskh style used by Arabic. Most digitized Urdu text is rendered in Naskh, meaning models are trained on a visual representation that doesn't match how Urdu is actually written and read.",
+      },
+      {
+        type: "p",
+        content:
+          "Then there are diacritics. Urdu's short vowels (zabar, zer, pesh) are represented by marks above or below consonants — but in virtually all digital text, these marks are omitted. Readers infer them from context. This means models learn to generate undiacritized text, and the same written string can represent multiple words with different meanings. Sindhi compounds this problem further with the largest Arabic-script alphabet of any language at 52 letters, many with unique dot patterns that most tokenizers simply don't recognize.",
+      },
+
+      { type: "h2", content: "The Contenders: Model-by-Model Analysis" },
+      { type: "h3", content: "LLaMA 3.1 / 4 (Meta)" },
+      {
+        type: "p",
+        content:
+          "LLaMA 3.1 8B is, as of early 2026, the most battle-tested base model for Urdu. Three independent research projects have fine-tuned it successfully: Qalb achieved a 90.34 weighted average score across 7 Urdu NLP tasks (a 44.64-point improvement over the base model), Alif 1.0 scored 87.1 and was the first purpose-built Urdu instruction-tuned model, and UrduLLaMA 1.0 demonstrated significant machine translation improvements with just 128M tokens of continued pre-training.",
+      },
+      {
+        type: "p",
+        content:
+          "The trade-off is licensing. Meta's Llama Community License caps free use at 700 million monthly active users and includes a competitor clause prohibiting use to build products that compete with Meta's own AI offerings. For a non-profit research lab like Zahin, these restrictions are manageable. For commercial deployment at scale, they could become binding.",
+      },
+      {
+        type: "ul",
+        content: "",
+        items: [
+          "Proven results: Qalb (90.34), Alif (87.1), UrduLLaMA — all built on LLaMA 3.1 8B",
+          "Fine-tuning cost: Alif was trained for under $100 using LoRA; Qalb-scale projects cost $15K-$25K",
+          "Weakness: 128K tokenizer vocabulary is Latin-biased; Urdu token fertility ~3-5x English on LLaMA 2, improved but not eliminated on LLaMA 3",
+          "License: Llama Community License — commercial use permitted up to 700M MAU with competitor restrictions",
+          "Latest: LLaMA 4 (April 2025) brings MoE architecture and 10M token context, pre-trained on 200 languages",
+        ],
+      },
+      { type: "h3", content: "Gemma 3 / 4 (Google DeepMind)" },
+      {
+        type: "p",
+        content:
+          "Gemma has two structural advantages: the largest tokenizer vocabulary of any open model (256K tokens) and, as of Gemma 4 (April 2026), a fully permissive Apache 2.0 license with no commercial restrictions whatsoever. Its 128K context window and multimodal capabilities (vision + text in Gemma 3 4B+) add practical value.",
+      },
+      {
+        type: "p",
+        content:
+          "The gap is in proven results. While the Navarasa 2.0 community project fine-tuned Gemma 7B on 15 Indian languages including Urdu, and Hindi-specific results have been strong (81.44 GLEU on grammatical error correction), there's no published benchmark equivalent to Qalb or Alif for Gemma-based Urdu fine-tuning. Gemma's RTL text generation behavior is also undocumented — a meaningful unknown for right-to-left languages.",
+      },
+      {
+        type: "ul",
+        content: "",
+        items: [
+          "Tokenizer: 256K vocabulary — best Arabic-script coverage on paper",
+          "License: Apache 2.0 (Gemma 4) — unrestricted commercial use, no approval needed",
+          "Fine-tuning: QLoRA on Gemma 27B fits in <22GB VRAM with Unsloth optimization",
+          "Proven for Urdu: Limited — Navarasa 2.0 includes Urdu but no published benchmarks",
+          "Risk: RTL generation behavior undocumented; diacritics and Nastaliq handling untested",
+        ],
+      },
+      { type: "h3", content: "Qwen3 (Alibaba)" },
+      {
+        type: "p",
+        content:
+          "Qwen3 is the surprise of this comparison. Released April 2025 with Apache 2.0 licensing, it offers the broadest South Asian language coverage of any model we tested. The Qwen3 Embedding series explicitly confirms support for Urdu, Punjabi, Sindhi, Bengali, Gujarati, and several other South Asian languages — a list that no other model matches.",
+      },
+      {
+        type: "p",
+        content:
+          "The quantitative signal is equally strong. In the Qalb benchmark evaluation, Qwen2.5-7B-Instruct scored 72.0 on Urdu reasoning tasks zero-shot — compared to LLaMA 3.1 8B Instruct's 45.7. That's a 26.3-point advantage before any fine-tuning. If Qwen's base performance is that much stronger, fine-tuning it should produce even better results — though this hasn't been tested yet at the scale of Qalb or Alif.",
+      },
+      {
+        type: "ul",
+        content: "",
+        items: [
+          "Language coverage: Explicitly confirms Urdu, Punjabi, Sindhi — broadest South Asian support",
+          "Zero-shot Urdu: 72.0 (vs LLaMA 3.1's 45.7) — strongest baseline before fine-tuning",
+          "License: Apache 2.0 — fully permissive",
+          "Sizes: 0.6B to 235B (MoE), dense models up to 32B",
+          "Gap: No published Urdu fine-tuning project at Qalb/Alif scale yet",
+          "Ecosystem: Supported by Axolotl, LLaMA-Factory, Unsloth, HuggingFace PEFT",
+        ],
+      },
+      { type: "h3", content: "Falcon-H1 (TII, UAE)" },
+      {
+        type: "p",
+        content:
+          "Falcon-H1 is notable for listing Urdu as one of its 18 natively trained languages — meaning Urdu was part of the pre-training data, not an afterthought. The Falcon-H1 Arabic variant adds 300B tokens of Arabic-specific training. Built by the Technology Innovation Institute in Abu Dhabi, Falcon represents a sovereign AI initiative with goals parallel to Zahin's.",
+      },
+      {
+        type: "p",
+        content:
+          "The catch is the license. TII's Falcon License requires a 10% royalty on revenue exceeding $1 million and a separate license for cloud/API hosting. This effectively rules out Falcon for commercial deployment at scale, though it's viable for research and small-scale use.",
+      },
+      {
+        type: "ul",
+        content: "",
+        items: [
+          "Urdu: Native training language (one of 18) — not a fine-tuned afterthought",
+          "Architecture: Hybrid Mamba-Transformer — more efficient than pure transformer at long sequences",
+          "Performance: Falcon-H1-34B rivals Qwen3-32B and LLaMA 3.3-70B at half the size",
+          "License: TII Falcon License — 10% royalty above $1M revenue, separate cloud hosting license required",
+          "Relevance: High for Urdu/Arabic; Pashto, Sindhi, Balochi not in the 18 native languages",
+        ],
+      },
+      { type: "h3", content: "Jais 2 (Inception / G42, UAE)" },
+      {
+        type: "p",
+        content:
+          "Jais 2 has the deepest Arabic pre-training of any open model: 600 billion Arabic tokens plus 1.6 trillion English and code tokens. Its tokenizer was custom-built to weight Arabic and English equally. For cross-script transfer to Urdu — which shares the Arabic script family — Jais offers a stronger starting foundation than any model built primarily on English data.",
+      },
+      {
+        type: "p",
+        content:
+          "However, Urdu and Arabic share a script but not a language family. Urdu is Indo-Aryan; Arabic is Semitic. The transfer from Arabic pre-training to Urdu capability is real but limited — grammar, morphology, and vocabulary are fundamentally different. Jais is best suited as a complement (for Islamic scholarly and Arabic-cultural context) rather than a primary base for broader Pakistani language work.",
+      },
+      {
+        type: "ul",
+        content: "",
+        items: [
+          "Arabic pre-training: 600B tokens — largest of any open model",
+          "License: Apache 2.0",
+          "Sizes: 8B and 70B",
+          "Cross-transfer: Strong for Urdu script handling, limited for Urdu grammar/semantics",
+          "Best for: Arabic-Islamic cultural context; Urdu legal/religious text that uses heavy Arabic loanwords",
+        ],
+      },
+      { type: "h3", content: "The Rest: Mistral, BLOOM, Aya" },
+      {
+        type: "p",
+        content:
+          "Mistral Saba (24B) explicitly supports Urdu and outperforms LLaMA 3.1 70B on Arabic benchmarks — but its Research License restricts commercial fine-tuning. Mistral Large 3 (675B MoE) is strong but impractical to self-host. BLOOM was historically significant — the first major open model to include Urdu in pre-training — but it's been dormant since 2022 and is outperformed by every 2024+ model. Aya Expanse is an excellent multilingual model, but its 23-language support list excludes Urdu, Pashto, and Sindhi entirely. Cohere's Tiny Aya Fire (3.35B) does include Urdu and Punjabi, but its CC-BY-NC license blocks commercial use.",
+      },
+
+      { type: "h2", content: "The Evidence: What Actually Works for Urdu" },
+      {
+        type: "p",
+        content:
+          "Theory is useful, but results matter more. Three research projects have published comprehensive results for Urdu LLM fine-tuning, all using LLaMA 3.1 8B as their base. The consistency of this choice is itself informative.",
       },
       {
         type: "h3",
-        content: "Punjabi Shahmukhi (113M+ speakers)",
+        content: "Qalb 1.0 — Current State of the Art (January 2026)",
       },
       {
         type: "p",
         content:
-          "Punjabi is the most spoken language in Pakistan, yet has almost zero AI coverage. A critical challenge is the script divide: Punjabi is written in Gurmukhi in India and Shahmukhi (Arabic-derived) in Pakistan. Most existing Punjabi NLP work targets Gurmukhi, making it largely useless for Pakistani Punjabi speakers.",
+          "Built by researchers at Auburn University and German institutions (BHT Berlin, BTU Cottbus), Qalb used continued pre-training on 1.84 billion Urdu tokens plus 140 million English tokens (to prevent catastrophic forgetting), followed by supervised fine-tuning on the Alif Urdu-instruct dataset with LoRA at rank 128. The result: a 90.34 weighted average score across 7 Urdu NLP tasks — a 44.64-point improvement over the base LLaMA 3.1. The 4-bit quantized version retains 95% of performance at 86.02.",
       },
       {
         type: "h3",
-        content: "Pashto (60M+ speakers)",
+        content: "Alif 1.0 — The Pioneer (October 2025)",
       },
       {
         type: "p",
         content:
-          "Pashto has some academic NLP research but minimal practical coverage. Its modified Arabic script with unique letters (ړ, ښ, ږ) and complex morphology — Pashto verbs can inflect for tense, aspect, mood, person, number, and gender — make it particularly challenging for models trained primarily on analytic languages like English.",
+          "Funded through Meta's LARGE initiative, Alif was the first purpose-built Urdu instruction-tuned model. It used 200K Urdu Wikipedia articles for continued pre-training and 105K examples for LoRA fine-tuning — at a total training cost of under $100. Despite its small budget, it achieved 87.1 on the same benchmark and outperformed Qwen2.5-7B and Aya-Expanse-8B on Urdu tasks.",
       },
       {
         type: "h3",
-        content: "Sindhi (30M+ speakers)",
+        content: "UrduLLaMA 1.0 — Minimal Viable Approach (February 2025)",
       },
       {
         type: "p",
         content:
-          "Sindhi is effectively invisible to current AI systems. It has the largest Arabic-script alphabet of any language (52 letters) and extensive use of diacritical marks that most tokenizers strip or mishandle. Building even a basic Sindhi capability requires ground-up data collection.",
+          "UrduLLaMA demonstrated that even 128 million tokens of continued pre-training — roughly 600-800MB of clean Urdu text — produces meaningful gains. Combined with LoRA fine-tuning on 41K Urdu instructions and 50K translation pairs, it achieved significant machine translation improvements with minimal compute investment.",
+      },
+
+      { type: "h2", content: "The Tokenizer Fertility Gap: Real Numbers" },
+      {
+        type: "p",
+        content:
+          "We compiled tokenizer fertility data from published research to quantify the efficiency gap. The numbers explain why model choice has such outsized impact for Pakistani languages.",
       },
       {
-        type: "h3",
-        content: "Balochi (8M+ speakers)",
+        type: "ul",
+        content: "Approximate token fertility (tokens per word) by model and script:",
+        items: [
+          "English (all models) — ~1.0 token/word (baseline)",
+          "Arabic on optimized SentencePiece — 1.2 tokens/word (AraToken research)",
+          "Arabic on default Qwen tokenizer — 1.35 tokens/word",
+          "Urdu on LLaMA 3.1 (128K vocab) — ~1.5-2.5 tokens/word (estimated from Arabic proxy)",
+          "Urdu on LLaMA 2 (32K vocab) — ~3-5 tokens/word (severe fragmentation)",
+          "Non-Latin scripts on Qwen — 2.89 tokens/word (Ukrainian proxy benchmark)",
+          "Indic scripts on LLaMA 4 — up to 10.5 tokens/word for worst-case scripts (Oriya)",
+        ],
       },
       {
         type: "p",
         content:
-          "Balochi represents the extreme end of the low-resource challenge. With minimal written digital content, no standardized orthography across its dialects (Makrani, Sulaimani, Eastern), and virtually no existing NLP research, Balochi requires creative data acquisition strategies including oral-to-text transcription partnerships.",
+          "The practical impact: a 100-word Urdu message sent to LLaMA 2 might consume 400-800 tokens. The same message on LLaMA 3.1 or Gemma might consume 150-250 tokens. At scale, this is a 2-4x cost difference — and quality suffers proportionally because longer token sequences degrade attention quality.",
       },
-      { type: "h2", content: "Our Data Pipeline" },
+
+      { type: "h2", content: "Licensing: The Hidden Constraint" },
       {
         type: "p",
         content:
-          "Data quality is the single biggest determinant of fine-tuning success. For low-resource languages, collecting sufficient high-quality training data is harder than the actual model training. Our pipeline has four stages.",
+          "For a sovereign AI initiative, licensing isn't just a legal detail — it determines whether the model you build can actually be deployed, modified, and governed by Pakistani institutions without foreign approval.",
+      },
+      {
+        type: "ul",
+        content: "License comparison for key models:",
+        items: [
+          "Apache 2.0 (Gemma 4, Qwen3, Jais 2, Mistral Large 3, Mixtral) — Fully permissive. Fine-tune, redistribute, commercialize without restriction. Best for sovereign AI.",
+          "Llama Community License (LLaMA 3.1/4) — Permits commercial use up to 700M MAU. Competitor clause prohibits building Meta-competing products. Fine-tuned weights must use 'Llama' prefix.",
+          "TII Falcon License (Falcon-H1) — 10% royalty on revenue exceeding $1M. Separate license for cloud/API hosting. Not OSI-approved.",
+          "Research License (Mistral Saba) — Non-commercial only. Commercial fine-tuning requires separate agreement.",
+          "CC-BY-NC (Tiny Aya Fire) — Non-commercial only.",
+          "RAIL (BLOOM) — Permits commercial use with usage restrictions. Practically irrelevant due to model age.",
+        ],
+      },
+      {
+        type: "blockquote",
+        content:
+          "A sovereign AI model built on a base that requires foreign corporate approval for deployment is not truly sovereign. Licensing is as much a sovereignty question as the model architecture itself.",
+      },
+
+      { type: "h2", content: "Cost Analysis: What a $50K Budget Can Accomplish" },
+      {
+        type: "p",
+        content:
+          "Sovereign AI doesn't require sovereign budgets — at least not for the first phase. The cost of fine-tuning has dropped dramatically. Here's what's realistic on current cloud GPU pricing (A100 80GB at $0.67-$2.50/hour depending on provider).",
+      },
+      {
+        type: "ul",
+        content: "Compute cost estimates by approach:",
+        items: [
+          "7B/8B QLoRA, SFT only (Alif-scale) — $50-$500, single A100, 10-50 hours",
+          "7B/8B CPT + SFT (Qalb-scale, ~2B tokens) — $15,000-$25,000, 4-8x A100, 100-300 hours",
+          "13B QLoRA — $500-$3,000, 4x A100, 50-200 hours",
+          "70B LoRA — $700-$1,500, 4x H100, ~15 hours training",
+          "70B full fine-tune — $10,000-$50,000, 8x H100, 300-1,000 hours",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "On a $50K budget, the highest-return approach is Qalb-scale continued pre-training plus supervised fine-tuning on a 7B-8B model. This costs $15-25K in compute, leaving $25-35K for data collection, annotation, and evaluation infrastructure. With spot pricing on providers like Vast.ai, the compute cost drops further.",
+      },
+      {
+        type: "p",
+        content:
+          "For multi-language coverage, a sequential approach works: fine-tune Urdu first (largest dataset, most proven approach), then adapt for Pashto and Sindhi using transfer learning from the Urdu model — estimated at $5-10K additional per language for SFT-only adaptation.",
+      },
+
+      { type: "h2", content: "The Critical Gaps: What No Model Handles Well" },
+      {
+        type: "p",
+        content:
+          "No matter which base model you choose, several challenges remain unsolved.",
       },
       {
         type: "ol",
         content: "",
         items: [
-          "Archival Digitization — Partner with university libraries (QAU, Punjab University, Sindh University, UoB) to digitize Urdu, Punjabi, Sindhi, Pashto, and Balochi literary and academic texts. OCR quality verification with native-speaker annotators.",
-          "Web Crawling & Filtering — Systematic crawling of Pakistani news sites (Jang, Dawn Urdu, Kawish, Mashriq), literary portals, and government publications. Aggressive quality filtering: deduplication, language ID verification, encoding normalization.",
-          "Community Corpora — Partnerships with linguistics departments to crowdsource annotated datasets. University students contribute as annotators with standardized guidelines and quality review.",
-          "Synthetic Augmentation — Controlled back-translation and paraphrasing to expand low-resource language datasets. Synthetic data is clearly labeled and used only to supplement (never replace) authentic text.",
+          "Pashto, Sindhi, and Balochi have zero dedicated fine-tuned LLMs as of April 2026. All work is greenfield.",
+          "Evaluation infrastructure lags model development by 2-3 years. UrduBench (January 2026) is the first systematic Urdu reasoning benchmark. Nothing comparable exists for any other Pakistani language.",
+          "Diacritization is unsolved. Models generate undiacritized Urdu because that's what the training data looks like. Downstream tasks like text-to-speech fail without diacritics.",
+          "RTL generation behavior is undocumented for most models. LLMs generate text left-to-right internally regardless of target script — the rendering is an application-layer concern, but code-mixed text (Urdu + English) causes directionality errors.",
+          "Synthetic data augmentation backfires for Pakistani languages. A 2025 ACL paper found that LLaMA 3-based generative augmentation had negative impact on NER tasks for Shahmukhi, Sindhi, Urdu, and Pashto. Simpler augmentation techniques outperform LLM-generated data.",
         ],
       },
-      { type: "h2", content: "Fine-Tuning Methodology" },
+
+      { type: "h2", content: "Our Recommendation" },
       {
         type: "p",
         content:
-          "We use QLoRA (Quantized Low-Rank Adaptation) for parameter-efficient fine-tuning. This allows us to fine-tune Gemma 27B on a single A100 80GB GPU by quantizing the base model to 4-bit precision and training only low-rank adapter weights — reducing memory requirements by roughly 75% compared to full fine-tuning.",
+          "After this analysis, our recommendation is nuanced — the right model depends on your specific constraints and goals.",
+      },
+      {
+        type: "ul",
+        content: "For Urdu (proven, immediate deployment):",
+        items: [
+          "Primary: LLaMA 3.1 8B — three independent projects prove it works. Start from Qalb if you want SOTA, or replicate UrduLLaMA's approach with minimal compute.",
+          "Alternative: Qwen3 8B — if Apache 2.0 licensing is non-negotiable, or if you want stronger zero-shot performance as a starting point.",
+        ],
+      },
+      {
+        type: "ul",
+        content: "For Punjabi Shahmukhi (no dedicated model exists):",
+        items: [
+          "Primary: Qwen3 — only model with explicitly confirmed Punjabi support and Apache 2.0 licensing.",
+          "Alternative: Falcon-H1 — native multilingual tokenizer likely covers Shahmukhi, but royalty clause limits commercial use.",
+        ],
+      },
+      {
+        type: "ul",
+        content: "For Pashto and Sindhi (greenfield):",
+        items: [
+          "Primary: Qwen3 8B — Sindhi explicitly confirmed; Pashto likely covered in 119-language scope. Apache 2.0.",
+          "Approach: Continued pre-training on assembled Pashto/Sindhi data, followed by SFT. Budget $5-10K compute per language.",
+        ],
+      },
+      {
+        type: "ul",
+        content: "For Balochi (extreme low-resource):",
+        items: [
+          "Base: Qwen3 4B or 8B — smallest practical size for continued pre-training.",
+          "Data: The 2.6M-word Balochi dataset and awesome-balochi-nlp repository are the starting point.",
+          "Timeline: This is a 2-3 year research horizon requiring dedicated data collection.",
+        ],
+      },
+      {
+        type: "ul",
+        content: "For Arabic-Islamic cultural context:",
+        items: [
+          "Primary: Jais 2 — 600B Arabic pre-training tokens; strongest Arabic-script foundation.",
+          "Use case: Religious text, legal documents using Arabic terminology, scholarly work where cultural alignment matters.",
+        ],
       },
       {
         type: "p",
         content:
-          "Training is structured in three stages: first, continued pre-training on monolingual corpora to adapt the model's language representation; second, instruction tuning on translated and culturally adapted instruction datasets; third, alignment using preference data collected from native speakers.",
+          "For Zahin specifically, we're pursuing a multi-model evaluation: testing Qwen3, Gemma 4, and LLaMA 3.1 head-to-head on our target languages before committing to a base. The licensing landscape favors Apache 2.0 models (Qwen3, Gemma 4, Jais 2) for a truly sovereign initiative — we won't lock ourselves into any single vendor. We'll publish our comparative fine-tuning results as they develop.",
       },
-      { type: "h2", content: "Evaluation Framework" },
+
+      { type: "h2", content: "Summary Comparison Table" },
       {
         type: "p",
         content:
-          "Existing LLM benchmarks (MMLU, HellaSwag, ARC) are English-centric and culturally biased. A model that scores well on American history questions tells us nothing about its ability to process Pakistani legal Urdu or agricultural Sindhi.",
+          "The following table summarizes the key attributes of each model for Pakistani language fine-tuning. Models are ranked by overall suitability for the five target languages.",
       },
+      {
+        type: "ul",
+        content: "Model rankings for Pakistani language work:",
+        items: [
+          "Qwen3 (Apache 2.0) — Broadest South Asian coverage, 72.0 Urdu zero-shot, Apache 2.0. Best overall choice for multi-language projects. Unproven at Qalb-scale fine-tuning.",
+          "LLaMA 3.1 8B (Llama Community) — Most proven for Urdu (Qalb 90.34, Alif 87.1). Restrictive license. No coverage for other Pakistani languages without fine-tuning.",
+          "Gemma 4 (Apache 2.0) — Best tokenizer vocabulary (256K), fully permissive license. Limited real-world Urdu validation. RTL behavior undocumented.",
+          "Falcon-H1 (TII License) — Urdu natively trained, strong performance at small sizes. 10% royalty clause limits commercial deployment.",
+          "Jais 2 (Apache 2.0) — Deepest Arabic foundation (600B tokens). Best for Arabic-script transfer. Not a standalone solution for Pakistani languages.",
+          "Mistral Saba (Research License) — Strong Urdu/Arabic support at 24B. Research license blocks commercial fine-tuning.",
+          "Aya / Tiny Aya Fire (Mixed) — Aya Expanse excludes Urdu. Tiny Aya Fire includes Urdu/Punjabi but CC-BY-NC license.",
+          "BLOOM (RAIL) — Historically important but dormant since 2022. Outperformed by every 2024+ model.",
+        ],
+      },
+
       {
         type: "p",
         content:
-          "We're building Zahin-Bench, a Pakistani-languages evaluation suite covering: reading comprehension, grammatical correctness, cultural knowledge, domain-specific tasks (legal, medical, educational), and script-handling accuracy. All benchmarks will be open-sourced alongside the model weights.",
-      },
-      { type: "h2", content: "Open-Source Commitment" },
-      {
-        type: "p",
-        content:
-          "Every artifact from this work will be released openly: model weights, training data, evaluation benchmarks, training code, and research papers. Sovereign AI must be transparent and reproducible — a black-box national model would simply replace one form of dependency with another.",
-      },
-      {
-        type: "p",
-        content:
-          "We publish all code on GitHub, all papers on arXiv, and all datasets on HuggingFace. Follow our progress in this journal, or contribute directly through our open research program.",
+          "The landscape is evolving fast. Six months ago, LLaMA 3.1 was the only serious option for Urdu. Today, Qwen3 and Gemma 4 have changed the calculus significantly. We'll continue publishing our findings as we test these models against our specific requirements. Follow this journal for updates.",
       },
     ],
   },

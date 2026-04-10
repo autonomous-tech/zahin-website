@@ -7,8 +7,8 @@ import GeometricBorder from "@/components/geometry/GeometricBorder";
 const phases = [
   {
     number: "01", title: "Fine-Tune", subtitle: "Now", raise: "$50K", active: true, tagline: "Prove it works",
-    description: "Fine-tune Google's Gemma and other open models for Urdu, Sindhi, Punjabi, Pashto, and Balochi. Build the largest curated dataset of Pakistani language and culture. Ship working models that prove capability.",
-    deliverables: ["Gemma fine-tuned for 5 Pakistani languages", "Curated Pakistani language dataset", "Open-weight model release", "Benchmark against existing multilingual models"],
+    description: "Fine-tune the best open-weight models for Urdu, Sindhi, Punjabi, Pashto, and Balochi. Build the largest curated dataset of Pakistani language and culture. Ship working models that prove capability.",
+    deliverables: ["Open models fine-tuned for 5 Pakistani languages", "Curated Pakistani language dataset", "Open-weight model release", "Benchmark against existing multilingual models"],
   },
   {
     number: "02", title: "Deploy", subtitle: "6-12 months", raise: "$500K", active: false, tagline: "Deploy it in the real world",

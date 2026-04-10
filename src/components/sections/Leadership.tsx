@@ -29,7 +29,7 @@ const boardOfDirectors: TeamMember[] = [
 
 const openRoles = [
   { title: "Chief Executive Officer", description: "A visionary leader with deep networks across Pakistani government, international development, and academia. Someone who can rally institutional support and represent Zahin on the world stage." },
-  { title: "Chief Research Officer", description: "A published AI researcher with expertise in multilingual NLP, foundation models, or computational linguistics. Lead the technical vision from Gemma fine-tuning to Zahin-1." },
+  { title: "Chief Research Officer", description: "A published AI researcher with expertise in multilingual NLP, foundation models, or computational linguistics. Lead the technical vision from fine-tuning through to Zahin-1." },
   { title: "Head of Partnerships & Development", description: "Build strategic relationships with universities, government bodies, corporate sponsors, and international funders. Turn Zahin's mission into institutional commitments and capital." },
 ];
 
