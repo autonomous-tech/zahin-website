@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zahin — Building Pakistan's Intellect: A White Paper on Sovereign AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page { size: letter; margin: 0; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+    :root {
+      --parchment:       #F5EFE0;
+      --parchment-light: #FAF7F0;
+      --parchment-dark:  #EDE5D3;
+      --deep-ink:        #1A1A2E;
+      --pakistan-green:   #01796F;
+      --terracotta:      #C4956A;
+      --deep-navy:       #0D2847;
+      --prose:           #4A4A60;
+      --caption:         #7A7A90;
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #fff;
+      color: var(--prose);
+    }
+
+    /* ── Page containers ── */
+    .page {
+      width: 8.5in;
+      height: 11in;
+      position: relative;
+      overflow: hidden;
+      background: var(--parchment);
+      page-break-after: always;
+    }
+    .page:last-child { page-break-after: avoid; break-after: avoid; }
+    .page-white { background: var(--parchment-light); }
+
+    /* ── Page header ── */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.35in 0.6in;
+      border-bottom: 1px solid var(--parchment-dark);
+    }
+    .logo-mark {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 14pt;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--deep-ink);
+    }
+    .doc-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--caption);
+    }
+
+    /* ── Page footer ── */
+    .page-footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 0.2in 0.6in;
+      border-top: 1px solid var(--parchment-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-text {
+      font-size: 7pt;
+      color: var(--caption);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── Page body ── */
+    .page-body { padding: 0.4in 0.6in; }
+
+    /* ── Eyebrow ── */
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--pakistan-green);
+      display: block;
+    }
+
+    /* ── Section title ── */
+    .section-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 24pt;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      font-variation-settings: 'opsz' 72;
+      color: var(--deep-ink);
+      margin-top: 0.12in;
+      margin-bottom: 0.22in;
+    }
+
+    .rule {
+      border: none;
+      border-top: 1px solid var(--parchment-dark);
+      margin: 0.25in 0;
+    }
+
+    /* ════════════════════════
+       PAGE 1 — COVER
+    ════════════════════════ */
+    .cover-body {
+      padding: 0.6in 0.6in 0;
+      height: calc(11in - 0.95in - 0.55in);
+      display: flex;
+      flex-direction: column;
+    }
+    .cover-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--pakistan-green);
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .cover-headline {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 54pt;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 0.93;
+      font-variation-settings: 'opsz' 144;
+      color: var(--deep-ink);
+      margin: 0.4in 0 0.25in;
+    }
+    .cover-subtitle {
+      font-size: 12pt;
+      color: var(--prose);
+      font-weight: 400;
+      margin-bottom: 0.4in;
+      line-height: 1.5;
+    }
+    .cover-price-box {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+      background: var(--deep-navy);
+      padding: 0.25in 0.35in;
+      border-radius: 12px;
+      margin-bottom: 0.45in;
+      align-self: flex-start;
+    }
+    .cover-price-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+    }
+    .cover-price-amount {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 28pt;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 0.5in;
+      padding-top: 0.25in;
+      border-top: 1px solid var(--parchment-dark);
+      margin-top: auto;
+    }
+    .cover-meta-item { display: flex; flex-direction: column; gap: 3px; }
+    .cover-meta-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--caption);
+    }
+    .cover-meta-value {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--deep-ink);
+    }
+
+    /* ════════════════════════
+       CONTENT STYLES
+    ════════════════════════ */
+    .overview-text {
+      font-size: 10.5pt;
+      line-height: 1.75;
+      color: var(--prose);
+      margin-bottom: 0.2in;
+      max-width: 6.2in;
+    }
+    .overview-text-sm {
+      font-size: 9.5pt;
+      line-height: 1.7;
+      color: var(--prose);
+      margin-bottom: 0.18in;
+      max-width: 6.2in;
+    }
+    .scope-list { list-style: none; display: flex; flex-direction: column; gap: 0.1in; }
+    .scope-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.18in;
+      padding: 0.14in 0.2in;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid var(--parchment-dark);
+    }
+    .scope-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      color: var(--pakistan-green);
+      font-weight: 500;
+      min-width: 20px;
+      padding-top: 1px;
+    }
+    .scope-title {
+      font-size: 10pt;
+      font-weight: 600;
+      color: var(--deep-ink);
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+    .scope-desc {
+      font-size: 9pt;
+      color: var(--prose);
+      line-height: 1.55;
+    }
+
+    /* ── Deliverables Grid ── */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.13in;
+      margin-bottom: 0.2in;
+    }
+    .del-card {
+      background: white;
+      border: 1px solid var(--parchment-dark);
+      border-radius: 10px;
+      padding: 0.16in 0.18in;
+    }
+    .del-card-title {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--deep-ink);
+      margin-bottom: 4px;
+    }
+    .del-card-desc {
+      font-size: 8.5pt;
+      color: var(--prose);
+      line-height: 1.5;
+    }
+
+    /* ── Timeline Strip ── */
+    .timeline-strip {
+      background: var(--deep-navy);
+      border-radius: 12px;
+      padding: 0.22in 0.28in;
+      display: flex;
+      gap: 0;
+    }
+    .tl-phase {
+      flex: 1;
+      padding-right: 0.25in;
+      margin-right: 0.25in;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .tl-phase:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+    .tl-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--pakistan-green);
+      margin-bottom: 5px;
+    }
+    .tl-title {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 5px;
+    }
+    .tl-desc {
+      font-size: 8pt;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.5;
+    }
+
+    /* ── Investment Table ── */
+    .inv-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 0.2in;
+    }
+    .inv-table th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--caption);
+      text-align: left;
+      padding: 0.1in 0.12in;
+      border-bottom: 1px solid var(--parchment-dark);
+      background: white;
+    }
+    .inv-table td {
+      font-size: 9pt;
+      padding: 0.09in 0.12in;
+      border-bottom: 1px solid var(--parchment-dark);
+      color: var(--deep-ink);
+      vertical-align: top;
+    }
+    .inv-table td.muted { color: var(--prose); font-size: 8.5pt; }
+    .inv-table td.right { text-align: right; }
+    .inv-table .total td {
+      background: var(--deep-navy);
+      color: white;
+      font-weight: 700;
+      font-size: 10pt;
+      border-bottom: none;
+    }
+    .inv-table .total td:first-child { border-radius: 8px 0 0 8px; }
+    .inv-table .total td:last-child { border-radius: 0 8px 8px 0; }
+    .inv-table .footnote-row td {
+      font-size: 7.5pt;
+      color: var(--caption);
+      font-style: italic;
+      border-bottom: none;
+      padding-top: 0.06in;
+    }
+
+    /* ── Terms Grid ── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.12in;
+      margin-bottom: 0.22in;
+    }
+    .term {
+      background: white;
+      border: 1px solid var(--parchment-dark);
+      border-radius: 10px;
+      padding: 0.14in 0.16in;
+    }
+    .term-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--pakistan-green);
+      margin-bottom: 5px;
+      display: block;
+    }
+    .term-text {
+      font-size: 8.5pt;
+      color: var(--prose);
+      line-height: 1.55;
+    }
+    .term-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 13pt;
+      font-weight: 500;
+      color: var(--deep-ink);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    /* ── Stats Bar ── */
+    .stats-bar {
+      display: flex;
+      gap: 0;
+      background: var(--deep-navy);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 0.2in;
+    }
+    .stat-item {
+      flex: 1;
+      padding: 0.16in 0.2in;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 16pt;
+      font-weight: 400;
+      color: white;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--pakistan-green);
+    }
+
+    /* ── Dark CTA Box ── */
+    .cta-box {
+      background: var(--deep-navy);
+      border-radius: 14px;
+      padding: 0.3in 0.38in;
+      margin-bottom: 0.22in;
+    }
+    .cta-box .eyebrow { color: var(--pakistan-green); }
+    .cta-box .section-title {
+      color: var(--parchment-light);
+      font-size: 20pt;
+      margin-top: 0.08in;
+      margin-bottom: 0.1in;
+      line-height: 1.15;
+    }
+    .cta-box p {
+      font-size: 9pt;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    /* ── Efficiency callout ── */
+    .callout-box {
+      background: var(--deep-navy);
+      border-radius: 12px;
+      padding: 0.22in 0.28in;
+      margin-bottom: 0.2in;
+    }
+    .callout-box .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--pakistan-green);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .callout-box p {
+      font-size: 9pt;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+    }
+
+    /* ── Zahin wordmark ── */
+    .zahin-wordmark {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 22pt;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--deep-ink);
+      margin-bottom: 0.15in;
+      display: block;
+    }
+    .zahin-urdu {
+      font-size: 18pt;
+      color: var(--pakistan-green);
+      opacity: 0.7;
+      margin-right: 8px;
+    }
+
+    /* ── References ── */
+    .ref-list {
+      list-style: none;
+      counter-reset: ref-counter;
+    }
+    .ref-list li {
+      counter-increment: ref-counter;
+      padding: 0.1in 0 0.1in 0.35in;
+      border-bottom: 1px solid var(--parchment-dark);
+      font-size: 8.5pt;
+      color: var(--prose);
+      line-height: 1.6;
+      position: relative;
+    }
+    .ref-list li::before {
+      content: counter(ref-counter) ".";
+      position: absolute;
+      left: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      color: var(--pakistan-green);
+      font-weight: 500;
+    }
+    .ref-list li:last-child { border-bottom: none; }
+
+    /* ── Section subtitle ── */
+    .section-subtitle {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 15pt;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--deep-ink);
+      margin-top: 0.18in;
+      margin-bottom: 0.14in;
+    }
+
+    /* ── Pillar grid (2-col, 3-row for policy page) ── */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.1in;
+      margin-bottom: 0.18in;
+    }
+    .pillar-card {
+      background: white;
+      border: 1px solid var(--parchment-dark);
+      border-radius: 10px;
+      padding: 0.13in 0.16in;
+    }
+    .pillar-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.5pt;
+      color: var(--pakistan-green);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 3px;
+      display: block;
+    }
+    .pillar-title {
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--deep-ink);
+      margin-bottom: 3px;
+    }
+    .pillar-desc {
+      font-size: 8pt;
+      color: var(--prose);
+      line-height: 1.5;
+    }
+
+    /* ── 5-col partnership tiers ── */
+    .partners-grid-5 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 0.1in;
+      margin-bottom: 0.18in;
+    }
+    .partner-card-5 {
+      background: white;
+      border: 1px solid var(--parchment-dark);
+      border-radius: 10px;
+      padding: 0.12in 0.14in;
+    }
+
+    /* ── Contact row ── */
+    .contact-row {
+      display: flex;
+      gap: 0.4in;
+      padding-top: 0.15in;
+      border-top: 1px solid var(--parchment-dark);
+      margin-top: 0.15in;
+    }
+    .contact-item {
+      font-size: 9pt;
+      color: var(--deep-ink);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════
+     PAGE 1 — COVER
+══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="cover-body">
+    <span class="zahin-wordmark"><span class="zahin-urdu">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> Zahin</span>
+    <h1 class="cover-headline">Building<br>Pakistan's<br>Intellect</h1>
+    <p class="cover-subtitle">A White Paper on Sovereign AI for Pakistan</p>
+    <div class="cover-price-box">
+      <span class="cover-price-label">Total Raise</span>
+      <span class="cover-price-amount">$25.55M across 3 phases</span>
+    </div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Prepared by</span>
+        <span class="cover-meta-value">Zahin</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Date</span>
+        <span class="cover-meta-value">April 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Version</span>
+        <span class="cover-meta-value">1.0</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Contact</span>
+        <span class="cover-meta-value">founders@zahin.ai</span>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">1 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 2 — EXECUTIVE SUMMARY
+══════════════════════ -->
+<div class="page page-white">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Executive Summary</span>
+    <h2 class="section-title">The case for sovereign AI</h2>
+    <p class="overview-text">Pakistan has 240 million people &mdash; the world's 6th largest population &mdash; and zero sovereign AI models. No foundation models trained on Urdu, Sindhi, Punjabi, Pashto, or Balochi. Every AI system serving Pakistan's economy, healthcare, education, and governance is owned, operated, and controlled by foreign entities.</p>
+    <p class="overview-text">This is not a technology gap. It is a sovereignty crisis. When the models that control a nation's information infrastructure are built, trained, and hosted by foreign powers, that nation's digital future is not its own. Pakistan cannot afford to be a consumer of AI built for others.</p>
+    <p class="overview-text">Zahin is a non-profit AI lab building Pakistan's first sovereign language models. Starting with fine-tuning Google's Gemma on Pakistani languages, Zahin will prove capability, deploy in critical sectors, and build toward Zahin-1 &mdash; Pakistan's own foundation model. The total investment: $25.55 million across three phases, beginning with just $50,000.</p>
+    <p class="overview-text">This paper presents the crisis, the opportunity, the technical approach, and the financial roadmap. Pakistan has the talent, the demographics, and the strategic imperative. What it lacks is the institution. Zahin is that institution.</p>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-number">240M</div>
+        <div class="stat-label">Population</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Languages</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$50K</div>
+        <div class="stat-label">Phase 1</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$25.55M</div>
+        <div class="stat-label">Total</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">2 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 3 — THE CRISIS (1 of 2)
+══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">The Crisis</span>
+    <h2 class="section-title">Pakistan's AI dependency</h2>
+    <p class="overview-text">Foreign models control Pakistan's narrative, cultural identity, and future. If access to these models is restricted &mdash; due to geopolitical tensions, sanctions, or corporate policy changes &mdash; Pakistan has no fallback. Zero sovereign capability. Zero self-sufficiency.</p>
+    <p class="overview-text">The scale of underinvestment becomes clear when compared with peer nations. While countries across the Gulf, South Asia, and Southeast Asia commit billions to sovereign AI, Pakistan's entire national technology investment remains a fraction of what individual labs spend elsewhere.</p>
+    <span class="eyebrow" style="margin-bottom:0.14in;">Global AI Investment Comparison</span>
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>AI Investment</th>
+          <th>Sovereign Models</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>United States</td>
+          <td>$67B+</td>
+          <td>GPT, Claude, Gemini, Llama</td>
+        </tr>
+        <tr>
+          <td>China</td>
+          <td>$15B+</td>
+          <td>DeepSeek, Qwen, Yi</td>
+        </tr>
+        <tr>
+          <td>UAE</td>
+          <td>$10B+</td>
+          <td>Falcon</td>
+        </tr>
+        <tr>
+          <td>Saudi Arabia</td>
+          <td>$6B+</td>
+          <td>ALLaM</td>
+        </tr>
+        <tr>
+          <td>India</td>
+          <td>$2B+</td>
+          <td>Krutrim, Bhashini</td>
+        </tr>
+        <tr>
+          <td>Pakistan</td>
+          <td>~$1B*</td>
+          <td>None</td>
+        </tr>
+        <tr class="footnote-row">
+          <td colspan="3">* Pakistan's ~$1B figure represents total national technology investment, not AI-specific funding.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">3 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 4 — THE CRISIS (2 of 2)
+══════════════════════ -->
+<div class="page page-white">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">The Crisis</span>
+    <h2 class="section-title">The language coverage gap</h2>
+    <p class="overview-text">The most fundamental expression of AI sovereignty is language. A model that cannot understand a nation's languages cannot serve its people. Pakistan's five major languages are among the most underrepresented in global AI systems.</p>
+    <span class="eyebrow" style="margin-bottom:0.14in;">Pakistani Language Coverage in Global AI</span>
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Language</th>
+          <th>Speakers</th>
+          <th>Current AI Coverage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Urdu</td>
+          <td>230M+</td>
+          <td>Minimal</td>
+        </tr>
+        <tr>
+          <td>Punjabi</td>
+          <td>150M+</td>
+          <td>Almost none</td>
+        </tr>
+        <tr>
+          <td>Pashto</td>
+          <td>60M+</td>
+          <td>Minimal</td>
+        </tr>
+        <tr>
+          <td>Sindhi</td>
+          <td>30M+</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Balochi</td>
+          <td>8M+</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="overview-text">478 million speakers across five major Pakistani languages have near-zero representation in global AI systems. These are not minority languages &mdash; Urdu alone has more speakers than German, French, and Italian combined.</p>
+    <p class="overview-text">Every day without sovereign AI capability is a day Pakistan's linguistic heritage is excluded from the systems that will increasingly mediate access to information, healthcare, education, government services, and economic opportunity. The cost of inaction compounds with every model trained without Pakistani language data.</p>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">4 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 5 — NATIONAL AI POLICY (1 of 2)
+══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Policy Alignment</span>
+    <h2 class="section-title">The gap between policy<br>and execution</h2>
+    <p class="overview-text">Pakistan's Federal Cabinet approved the National Artificial Intelligence Policy 2025 in July 2025, committing $1 billion to AI development by 2030. The policy identifies six strategic pillars. Implementation, however, has stalled &mdash; with only the first pillar (Awareness and Readiness) seeing meaningful progress more than six months after approval.</p>
+    <p class="overview-text-sm">Zahin is positioned to accelerate execution across all six pillars. The table below maps each pillar to Zahin's specific contribution.</p>
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <span class="pillar-num">Pillar 1</span>
+        <div class="pillar-title">Awareness &amp; Readiness</div>
+        <div class="pillar-desc">Zahin demonstrates sovereign AI is achievable with Pakistani talent at Pakistani costs.</div>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">Pillar 2</span>
+        <div class="pillar-title">Research &amp; Innovation</div>
+        <div class="pillar-desc">Zahin publishes open research, creates benchmarks, and advances multilingual NLP for Pakistani languages.</div>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">Pillar 3</span>
+        <div class="pillar-title">Talent Development</div>
+        <div class="pillar-desc">Zahin creates research positions, fellowships, and diaspora contribution programs.</div>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">Pillar 4</span>
+        <div class="pillar-title">Infrastructure</div>
+        <div class="pillar-desc">Zahin builds compute infrastructure and curates the largest Pakistani language dataset.</div>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">Pillar 5</span>
+        <div class="pillar-title">Responsible AI Governance</div>
+        <div class="pillar-desc">Zahin commits to open-weight models, transparent methodology, and reproducible science.</div>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-num">Pillar 6</span>
+        <div class="pillar-title">International Partnerships</div>
+        <div class="pillar-desc">Zahin connects Pakistani AI research to the global open-source AI community.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">5 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 6 — NATIONAL AI POLICY (2 of 2)
+══════════════════════ -->
+<div class="page page-white">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Policy Alignment</span>
+    <h2 class="section-title">From policy to execution</h2>
+    <p class="overview-text">The National AI Policy 2025 is a strong foundation. It correctly identifies the strategic imperatives, the talent requirements, and the infrastructure needs. What it lacks is an execution vehicle &mdash; a dedicated institution with the technical expertise, operational independence, and singular focus required to translate policy language into functioning AI systems.</p>
+    <p class="overview-text">Government ministries are structured for policy oversight, not for training language models. Universities produce research papers, not production-grade AI infrastructure. Private companies optimize for profit, not for linguistic coverage of underserved populations. Pakistan needs an institution purpose-built for this mission &mdash; independent enough to move at the speed of technology, transparent enough to earn public trust, and mission-driven enough to serve all of Pakistan's languages, not just the commercially viable ones.</p>
+    <div class="cta-box">
+      <span class="eyebrow">The Gap</span>
+      <h3 class="section-title">The policy exists. The lab doesn't.</h3>
+      <p>Zahin is the execution arm Pakistan's AI strategy needs. A non-profit lab with a clear technical mandate, open-science commitment, and phased financial roadmap &mdash; designed to turn the aspirations of the National AI Policy into measurable, deployable sovereign AI capability.</p>
+    </div>
+    <p class="overview-text">Pakistan's AI policy is not the problem. Execution is. Every month of delay widens the gap between Pakistan and nations that have already invested in sovereign AI. Zahin exists to close that gap.</p>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">6 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 7 — WHY PAKISTAN
+══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Strategic Advantage</span>
+    <h2 class="section-title">Pakistan's untapped advantage</h2>
+    <p class="overview-text" style="margin-bottom:0.25in;">Pakistan is not starting from zero. It has structural advantages that, properly leveraged, can accelerate sovereign AI development faster and at lower cost than most comparable nations.</p>
+    <div class="timeline-strip" style="margin-bottom:0.3in;">
+      <div class="tl-phase">
+        <div class="tl-label">Demographic Scale</div>
+        <div class="tl-title" style="font-size:22pt; font-family:'Fraunces',serif; font-weight:400; letter-spacing:-0.03em;">240M</div>
+        <div class="tl-desc">6th largest population in the world. More people than Germany, France, and UK combined.</div>
+      </div>
+      <div class="tl-phase">
+        <div class="tl-label">Youth Dividend</div>
+        <div class="tl-title" style="font-size:22pt; font-family:'Fraunces',serif; font-weight:400; letter-spacing:-0.03em;">75%</div>
+        <div class="tl-desc">Under 35 years old. One of the youngest populations globally &mdash; a generational workforce advantage.</div>
+      </div>
+      <div class="tl-phase">
+        <div class="tl-label">Technical Pipeline</div>
+        <div class="tl-title" style="font-size:22pt; font-family:'Fraunces',serif; font-weight:400; letter-spacing:-0.03em;">25,000+</div>
+        <div class="tl-desc">Computer science graduates per year. A growing technical talent base ready for advanced AI work.</div>
+      </div>
+    </div>
+    <span class="eyebrow" style="margin-bottom:0.12in;">The Diaspora Advantage</span>
+    <p class="overview-text">Pakistani AI talent currently works at Google, Meta, OpenAI, DeepMind, Microsoft, and Amazon &mdash; building AI for other countries. Pakistan's world-class technical talent represents a significant strategic advantage in building sovereign AI infrastructure at a fraction of global costs.</p>
+    <p class="overview-text">The diaspora is not just a source of funding. It is a source of expertise, mentorship, institutional knowledge, and global network access. Many Pakistani AI researchers and engineers want to contribute to their home country's technological future &mdash; they lack an institution through which to do so. Zahin provides that vehicle.</p>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">7 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 8 — COMPARABLE INITIATIVES (1 of 2)
+══════════════════════ -->
+<div class="page page-white">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Global Context</span>
+    <h2 class="section-title">What other nations have built</h2>
+    <p class="overview-text">Zahin does not operate in a vacuum. Several nations have launched sovereign AI initiatives, each with different structures, funding models, and outcomes. Understanding these precedents informs Zahin's approach and validates the model.</p>
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Initiative</th>
+          <th>Country</th>
+          <th>Structure</th>
+          <th>Languages</th>
+          <th>Key Achievement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AI4Bharat</td>
+          <td>India</td>
+          <td class="muted">Non-profit at IIT Madras</td>
+          <td>11+ Indic</td>
+          <td class="muted">Open-source IndicNLP suite</td>
+        </tr>
+        <tr>
+          <td>TII / Falcon</td>
+          <td>UAE</td>
+          <td class="muted">Government-funded</td>
+          <td>Arabic + multilingual</td>
+          <td class="muted">55M+ HuggingFace downloads</td>
+        </tr>
+        <tr>
+          <td>National AI Fund</td>
+          <td>Indonesia</td>
+          <td class="muted">Sovereign wealth fund</td>
+          <td>Indonesian</td>
+          <td class="muted">$1B commitment, 100K professionals</td>
+        </tr>
+        <tr>
+          <td>AI for Bangladesh</td>
+          <td>Bangladesh</td>
+          <td class="muted">Government policy</td>
+          <td>Bangla</td>
+          <td class="muted">Policy approved, minimal execution</td>
+        </tr>
+        <tr>
+          <td>Qalb</td>
+          <td>Pakistan*</td>
+          <td class="muted">Academic (Auburn University)</td>
+          <td>Urdu only</td>
+          <td class="muted">90.34 SOTA score on Urdu benchmarks</td>
+        </tr>
+        <tr class="footnote-row">
+          <td colspan="5">* Qalb was developed at Auburn University (USA) and BTU Cottbus (Germany), not in Pakistan.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">8 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 9 — COMPARABLE INITIATIVES (2 of 2)
+══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Global Context</span>
+    <h2 class="section-title">Key lessons from<br>global precedents</h2>
+    <p class="overview-text">Each initiative teaches something. AI4Bharat proves a non-profit university model works for language AI. Falcon proves open-weight sovereignty attracts global adoption. Indonesia proves governments will commit billions when the case is clear. Bangladesh proves that policy without execution delivers nothing. And Qalb proves that Pakistani language AI can achieve state-of-the-art results &mdash; but is being built outside Pakistan.</p>
+
+    <span class="eyebrow" style="margin-bottom:0.12in;">What Zahin Learns from Each</span>
+    <div class="deliverables-grid">
+      <div class="del-card">
+        <div class="del-card-title">From AI4Bharat</div>
+        <div class="del-card-desc">A non-profit embedded in academic infrastructure can produce world-class multilingual NLP. The model works. Zahin applies this structure for Pakistani languages.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">From Falcon (UAE)</div>
+        <div class="del-card-desc">Open-weight models attract global adoption and establish AI sovereignty without requiring secrecy. Zahin commits to open weights from day one.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">From Indonesia</div>
+        <div class="del-card-desc">When the strategic case is clear and the institution credible, governments commit at scale. Zahin builds the case before asking for the commitment.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">From Bangladesh</div>
+        <div class="del-card-desc">Policy without a dedicated execution vehicle produces nothing. Zahin exists specifically to prevent Pakistan from following this path.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">From Qalb</div>
+        <div class="del-card-desc">Pakistani language AI can achieve state-of-the-art results. The fine-tuning approach is validated. Zahin extends this to all five major languages &mdash; and builds within Pakistan.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Zahin's Synthesis</div>
+        <div class="del-card-desc">Non-profit structure, open-weight commitment, phased funding, embedded in Pakistan, covering all major languages, with a path from research to deployment.</div>
+      </div>
+    </div>
+    <p class="overview-text">Pakistan has the demographic scale of Indonesia, the diaspora talent pool that rivals India's, and a proven baseline in Qalb's results. What it lacks is the institutional commitment. Zahin fills that gap.</p>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">9 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 10 — TECHNICAL APPROACH (1 of 2)
+══════════════════════ -->
+<div class="page page-white">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Technical Strategy</span>
+    <h2 class="section-title">Fine-tuning for<br>Pakistani languages</h2>
+    <span class="eyebrow" style="margin-bottom:0.1in;">Why Gemma</span>
+    <p class="overview-text">Google's Gemma is an open-weight model with strong multilingual foundations and permissive licensing for fine-tuning and redistribution &mdash; exactly what sovereign AI requires. Unlike proprietary models, Gemma can be adapted, deployed locally, and released openly.</p>
+    <span class="eyebrow" style="margin-bottom:0.1in;">Positioning vs Qalb</span>
+    <p class="overview-text">The Qalb project (arXiv:2601.08141) fine-tuned LLaMA 3.1 8B on 1.84 billion Urdu tokens, achieving a weighted score of 90.34 across seven language tasks &mdash; state of the art for Urdu. This validates the fine-tuning approach. However, Qalb covers only Urdu, was developed entirely outside Pakistan, and has no deployment path for production applications. Zahin builds on this proven approach but extends it to all five major Pakistani languages, develops the work within Pakistan, and creates a path from research to real-world deployment.</p>
+    <span class="eyebrow" style="margin-bottom:0.1in;">Data Pipeline</span>
+    <ul class="scope-list">
+      <li class="scope-item">
+        <span class="scope-num">01</span>
+        <div>
+          <div class="scope-title">Collection</div>
+          <div class="scope-desc">Urdu news archives, government documents, literature, social media. For lower-resource languages (Sindhi, Balochi), targeted collection from regional media, religious texts, and community contributions.</div>
+        </div>
+      </li>
+      <li class="scope-item">
+        <span class="scope-num">02</span>
+        <div>
+          <div class="scope-title">Synthetic Augmentation</div>
+          <div class="scope-desc">Use Google's Gemini API to generate instruction-tuning datasets (question/answer pairs, translations, summaries) across all five languages. Validate with human linguists.</div>
+        </div>
+      </li>
+      <li class="scope-item">
+        <span class="scope-num">03</span>
+        <div>
+          <div class="scope-title">Quality Filtering</div>
+          <div class="scope-desc">Automated deduplication, language detection, and content quality scoring. Human review for cultural appropriateness and linguistic accuracy.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">10 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 11 — TECHNICAL APPROACH (2 of 2)
+══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Technical Strategy</span>
+    <h2 class="section-title">Training and evaluation</h2>
+    <ul class="scope-list" style="margin-bottom:0.25in;">
+      <li class="scope-item">
+        <span class="scope-num">04</span>
+        <div>
+          <div class="scope-title">Fine-Tuning</div>
+          <div class="scope-desc">LoRA/QLoRA fine-tuning on consumer hardware (Apple Silicon or cloud GPU). Multiple adaptation passes: base language understanding, instruction following, domain-specific (healthcare, legal, agriculture).</div>
+        </div>
+      </li>
+      <li class="scope-item">
+        <span class="scope-num">05</span>
+        <div>
+          <div class="scope-title">Evaluation</div>
+          <div class="scope-desc">Benchmark against Qalb's 7-task evaluation suite. Extend benchmarks to Sindhi, Punjabi, Pashto, and Balochi. Human evaluation for fluency, cultural accuracy, and task completion.</div>
+        </div>
+      </li>
+    </ul>
+    <span class="eyebrow" style="margin-bottom:0.12in;">Technical Architecture</span>
+    <div class="deliverables-grid">
+      <div class="del-card">
+        <div class="del-card-title">Base Model</div>
+        <div class="del-card-desc">Google Gemma (open-weight). Chosen for multilingual foundation, permissive licensing, and community ecosystem.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Fine-Tuning Method</div>
+        <div class="del-card-desc">LoRA / QLoRA for parameter-efficient training. Enables sovereign model development on modest compute budgets.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Data Strategy</div>
+        <div class="del-card-desc">Multi-source collection (archives, government, social) augmented by synthetic generation and validated by human linguists.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Evaluation Framework</div>
+        <div class="del-card-desc">Qalb's 7-task suite extended to 5 languages. Human evaluation for cultural accuracy. Public benchmark publication.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Deployment Target</div>
+        <div class="del-card-desc">Local inference on commodity hardware. Cloud-based API for integration partners. Open-weight release on HuggingFace.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Domain Adaptation</div>
+        <div class="del-card-desc">Sector-specific fine-tuning for healthcare, agriculture, legal, and education &mdash; Pakistan's highest-impact deployment verticals.</div>
+      </div>
+    </div>
+    <p class="overview-text">The technical approach is deliberately conservative in Phase 1. Fine-tuning an existing open-weight model is proven, cost-effective, and fast. It allows Zahin to demonstrate capability and publish results before committing to the significantly larger investment required for foundation model training in Phase 3.</p>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">11 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 12 — ROADMAP (1 of 2)
+══════════════════════ -->
+<div class="page page-white">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Implementation Roadmap</span>
+    <h2 class="section-title">From fine-tuning<br>to foundation</h2>
+    <p class="overview-text">Zahin's roadmap is structured in three phases, each building on the outcomes of the previous. This phased approach de-risks the investment: each phase produces tangible deliverables and proves capability before the next commitment.</p>
+    <div class="timeline-strip" style="margin-bottom:0.3in;">
+      <div class="tl-phase">
+        <div class="tl-label">Phase 1 &middot; Now</div>
+        <div class="tl-title">Fine-Tune</div>
+        <div class="tl-desc" style="margin-bottom:6px;">$50K</div>
+        <div class="tl-desc">Fine-tune Gemma for 5 Pakistani languages. Build curated dataset. Open-weight release.</div>
+      </div>
+      <div class="tl-phase">
+        <div class="tl-label">Phase 2 &middot; 6&ndash;12 months</div>
+        <div class="tl-title">Deploy</div>
+        <div class="tl-desc" style="margin-bottom:6px;">$500K</div>
+        <div class="tl-desc">Healthcare, agriculture, legal, education pilots. 10-person team. Inference infrastructure.</div>
+      </div>
+      <div class="tl-phase">
+        <div class="tl-label">Phase 3 &middot; 18&ndash;24 months</div>
+        <div class="tl-title">Zahin-1</div>
+        <div class="tl-desc" style="margin-bottom:6px;">$25M</div>
+        <div class="tl-desc">Pakistan's own foundation model. Sovereign compute. Open research.</div>
+      </div>
+    </div>
+    <span class="eyebrow" style="margin-bottom:0.12in;">Phase 1 Deliverables</span>
+    <div class="deliverables-grid" style="margin-bottom:0.2in;">
+      <div class="del-card">
+        <div class="del-card-title">Gemma Fine-Tuned for 5 Languages</div>
+        <div class="del-card-desc">Urdu, Sindhi, Punjabi, Pashto, and Balochi language capabilities validated against benchmarks.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Curated Pakistani Language Dataset</div>
+        <div class="del-card-desc">The largest open dataset of Pakistani language text, released under permissive license.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Open-Weight Model Release</div>
+        <div class="del-card-desc">Published on HuggingFace with full documentation, training recipes, and evaluation results.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Benchmark Results Published</div>
+        <div class="del-card-desc">Peer-reviewed evaluation against Qalb's suite, extended to all five languages. Published on arXiv.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">12 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 13 — ROADMAP (2 of 2)
+══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Implementation Roadmap</span>
+    <h2 class="section-title">Phase 2 &amp; Phase 3 deliverables</h2>
+    <span class="eyebrow" style="margin-bottom:0.12in;">Phase 2 &mdash; Deploy ($500K)</span>
+    <div class="deliverables-grid" style="margin-bottom:0.25in;">
+      <div class="del-card">
+        <div class="del-card-title">Healthcare NLP Pilot (Urdu)</div>
+        <div class="del-card-desc">Patient intake, symptom assessment, and medical record summarization in Urdu for primary care facilities.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Agricultural Advisory</div>
+        <div class="del-card-desc">Crop advisory and weather information in Sindhi and Punjabi for smallholder farmers via SMS and voice.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Legal Document Processing</div>
+        <div class="del-card-desc">Urdu legal document summarization, translation, and case law search for courts and legal aid organizations.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Educational Content Generation</div>
+        <div class="del-card-desc">Multilingual educational materials, assessment generation, and tutoring assistance across all five languages.</div>
+      </div>
+    </div>
+    <span class="eyebrow" style="margin-bottom:0.12in;">Phase 3 &mdash; Zahin-1 ($25M)</span>
+    <div class="deliverables-grid" style="margin-bottom:0.25in;">
+      <div class="del-card">
+        <div class="del-card-title">Zahin-1 Foundation Model</div>
+        <div class="del-card-desc">Pakistan's first sovereign foundation model, trained from the ground up on Pakistani language and cultural data.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Pakistani-First Training Pipeline</div>
+        <div class="del-card-desc">End-to-end data collection, curation, training, and evaluation pipeline optimized for Pakistani languages.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Sovereign Compute Infrastructure</div>
+        <div class="del-card-desc">GPU cluster hosted in Pakistan for training and inference. Eliminates dependence on foreign cloud providers.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Open Research Publications</div>
+        <div class="del-card-desc">Comprehensive publication program at ACL, EMNLP, NeurIPS. All findings reproducible and publicly accessible.</div>
+      </div>
+    </div>
+    <p class="overview-text">Each phase is designed to be independently valuable. Phase 1 produces a usable model and open dataset. Phase 2 demonstrates real-world impact. Phase 3 establishes Pakistan as a sovereign AI nation. Failure at any phase still leaves Pakistan better off than the status quo.</p>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">13 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 14 — OPEN SCIENCE
+══════════════════════ -->
+<div class="page page-white">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Research Commitment</span>
+    <h2 class="section-title">Open by default</h2>
+    <p class="overview-text">Sovereign AI does not mean closed AI. Zahin's commitment to open science is not incidental &mdash; it is foundational. Open models, open data, and open research are how sovereign AI serves all of Pakistan, not just those who can afford access.</p>
+    <div class="deliverables-grid" style="margin-bottom:0.25in;">
+      <div class="del-card" style="padding:0.2in 0.22in;">
+        <div class="del-card-title" style="font-size:11pt; margin-bottom:6px;">Open-Weight Models</div>
+        <div class="del-card-desc" style="font-size:9pt; line-height:1.6;">Every model Zahin builds will be released with open weights. Sovereign AI means the people own it &mdash; not a corporation, not a government.</div>
+      </div>
+      <div class="del-card" style="padding:0.2in 0.22in;">
+        <div class="del-card-title" style="font-size:11pt; margin-bottom:6px;">Published Research</div>
+        <div class="del-card-desc" style="font-size:9pt; line-height:1.6;">All research papers, benchmarks, and findings published at major conferences (ACL, EMNLP, NeurIPS) and on arXiv. Peer-reviewed, reproducible, globally accessible.</div>
+      </div>
+      <div class="del-card" style="padding:0.2in 0.22in;">
+        <div class="del-card-title" style="font-size:11pt; margin-bottom:6px;">Open Datasets</div>
+        <div class="del-card-desc" style="font-size:9pt; line-height:1.6;">The Pakistani language datasets we curate will be released under permissive licenses for researchers worldwide. Better data for Pakistani languages benefits everyone.</div>
+      </div>
+      <div class="del-card" style="padding:0.2in 0.22in;">
+        <div class="del-card-title" style="font-size:11pt; margin-bottom:6px;">Reproducible Science</div>
+        <div class="del-card-desc" style="font-size:9pt; line-height:1.6;">Training recipes, hyperparameters, evaluation methodology, and infrastructure specifications documented publicly. If we can't reproduce it, we don't publish it.</div>
+      </div>
+    </div>
+    <div class="callout-box">
+      <span class="callout-label">Why Open?</span>
+      <p>Open-weight models create more value than proprietary ones. Falcon's 55 million downloads prove that open sovereignty attracts global adoption, research collaboration, and talent. Zahin's open commitment ensures Pakistan's AI work benefits the global community &mdash; and that the global community contributes back to Pakistan.</p>
+    </div>
+    <p class="overview-text">Transparency is not a vulnerability. It is the mechanism through which Zahin earns and maintains the trust of the Pakistani public, the international research community, and the funders who make this work possible.</p>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">14 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 15 — BUDGET (1 of 2)
+══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Financial Plan</span>
+    <h2 class="section-title">Use of funds</h2>
+    <span class="eyebrow" style="margin-bottom:0.12in;">Phase 1 &mdash; $50,000</span>
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Description</th>
+          <th style="text-align:right;">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Research Personnel</td>
+          <td class="muted">2 ML engineers &times; $2,000/mo &times; 6 months</td>
+          <td class="right">$24,000</td>
+        </tr>
+        <tr>
+          <td>Linguistic Expertise</td>
+          <td class="muted">3 part-time linguists (Sindhi, Punjabi, Pashto) &times; $500/mo &times; 6 months</td>
+          <td class="right">$9,000</td>
+        </tr>
+        <tr>
+          <td>Compute &amp; Hardware</td>
+          <td class="muted">GPU cloud credits + local hardware (Apple Silicon)</td>
+          <td class="right">$12,000</td>
+        </tr>
+        <tr>
+          <td>Operations</td>
+          <td class="muted">Legal, admin, partnerships, travel</td>
+          <td class="right">$5,000</td>
+        </tr>
+        <tr class="total">
+          <td>Total Phase 1</td>
+          <td></td>
+          <td class="right">$50,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <span class="eyebrow" style="margin-bottom:0.12in;">Phase 2 &mdash; $500,000</span>
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Description</th>
+          <th style="text-align:right;">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Team Expansion</td>
+          <td class="muted">10-person team (researchers, engineers, linguists) &times; 12 months</td>
+          <td class="right">$240,000</td>
+        </tr>
+        <tr>
+          <td>Pilot Partnerships</td>
+          <td class="muted">Healthcare, agriculture, legal, education sector integration</td>
+          <td class="right">$80,000</td>
+        </tr>
+        <tr>
+          <td>Infrastructure</td>
+          <td class="muted">Inference hosting, API development, monitoring</td>
+          <td class="right">$100,000</td>
+        </tr>
+        <tr>
+          <td>Operations</td>
+          <td class="muted">Office, legal, administration, travel</td>
+          <td class="right">$80,000</td>
+        </tr>
+        <tr class="total">
+          <td>Total Phase 2</td>
+          <td></td>
+          <td class="right">$500,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">15 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 16 — BUDGET (2 of 2)
+══════════════════════ -->
+<div class="page page-white">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Financial Plan</span>
+    <h2 class="section-title">Phase 3 investment</h2>
+    <span class="eyebrow" style="margin-bottom:0.12in;">Phase 3 &mdash; $25,000,000</span>
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Description</th>
+          <th style="text-align:right;">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Compute Infrastructure</td>
+          <td class="muted">GPU cluster for foundation model training</td>
+          <td class="right">$15,000,000</td>
+        </tr>
+        <tr>
+          <td>Research Team</td>
+          <td class="muted">50+ researchers, engineers, linguists &times; 18 months</td>
+          <td class="right">$5,400,000</td>
+        </tr>
+        <tr>
+          <td>Data Pipeline</td>
+          <td class="muted">Large-scale data collection, curation, annotation</td>
+          <td class="right">$2,000,000</td>
+        </tr>
+        <tr>
+          <td>Operations &amp; Governance</td>
+          <td class="muted">Legal, administration, board, facilities</td>
+          <td class="right">$1,600,000</td>
+        </tr>
+        <tr>
+          <td>Contingency</td>
+          <td class="muted">4% reserve</td>
+          <td class="right">$1,000,000</td>
+        </tr>
+        <tr class="total">
+          <td>Total Phase 3</td>
+          <td></td>
+          <td class="right">$25,000,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout-box" style="margin-top:0.25in;">
+      <span class="callout-label">What $1 Buys in Pakistan</span>
+      <p>A senior ML engineer in Pakistan costs $2,000/month &mdash; compared to $15,000&ndash;25,000/month in Silicon Valley. The same $50,000 that funds Zahin's entire Phase 1 would cover approximately two weeks of a single senior researcher's salary at a US AI lab.</p>
+    </div>
+
+    <div class="stats-bar" style="margin-top:0.2in;">
+      <div class="stat-item">
+        <div class="stat-number">$50K</div>
+        <div class="stat-label">Phase 1</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$500K</div>
+        <div class="stat-label">Phase 2</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$25M</div>
+        <div class="stat-label">Phase 3</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$25.55M</div>
+        <div class="stat-label">Total</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">16 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 17 — TEAM & GOVERNANCE
+══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">Leadership</span>
+    <h2 class="section-title">The people behind Zahin</h2>
+    <div class="terms-grid" style="margin-bottom:0.22in;">
+      <div class="term" style="padding:0.2in 0.22in;">
+        <span class="term-label">Founder &amp; Chairman</span>
+        <div class="term-name">Rizwan Qaiser</div>
+        <p class="term-text">20 years building technology platforms and go-to-market infrastructure across four continents. Founder &amp; CEO of Autonomous Technologies. Previously led product and engineering at scale in fintech, ecommerce, and enterprise SaaS. Based in Karachi.</p>
+      </div>
+      <div class="term" style="padding:0.2in 0.22in;">
+        <span class="term-label">Co-Founder &amp; CTO</span>
+        <div class="term-name">Abdullah Abid</div>
+        <p class="term-text">Pakistan's youngest certified Java engineer at age 10. Full-stack architect with deep expertise in AI infrastructure, distributed systems, and model deployment. Previously engineering lead at Crowdbotics (YC W18). Co-founded Memox, an AI sales automation platform.</p>
+      </div>
+    </div>
+    <span class="eyebrow" style="margin-bottom:0.12in;">Open Founding Roles</span>
+    <div class="deliverables-grid" style="grid-template-columns:1fr 1fr 1fr; margin-bottom:0.22in;">
+      <div class="del-card">
+        <div class="del-card-title">Chief Executive Officer</div>
+        <div class="del-card-desc">Visionary leader with deep networks across Pakistani government, international development, and academia.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Chief Research Officer</div>
+        <div class="del-card-desc">Published AI researcher with expertise in multilingual NLP or foundation models.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title">Head of Partnerships &amp; Development</div>
+        <div class="del-card-desc">Strategic relationship builder across universities, government, and international funders.</div>
+      </div>
+    </div>
+    <div class="callout-box">
+      <span class="callout-label">Governance</span>
+      <p>Zahin is structured as a transparent non-profit. All board decisions, financial reports, and research outputs will be publicly accessible. We are assembling &mdash; not filling &mdash; founding leadership roles to ensure the right people lead this mission.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">17 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 18 — PARTNERSHIP MODEL
+══════════════════════ -->
+<div class="page page-white">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">How to Partner</span>
+    <h2 class="section-title">Join the mission</h2>
+    <p class="overview-text">Zahin's work requires a coalition of partners across government, industry, academia, and civil society. Each partnership tier offers a different path to contributing &mdash; and a different form of impact.</p>
+    <div class="terms-grid" style="margin-bottom:0.25in;">
+      <div class="term" style="padding:0.2in 0.22in;">
+        <span class="term-label">Institutional Partner</span>
+        <div class="term-name" style="font-size:12pt;">Government &amp; Development</div>
+        <p class="term-text">Government bodies, international development organizations, and foundations. Strategic partnership with advisory board representation. Shape Pakistan's AI future at the institutional level.</p>
+      </div>
+      <div class="term" style="padding:0.2in 0.22in;">
+        <span class="term-label">Corporate Sponsor</span>
+        <div class="term-name" style="font-size:12pt;">Technology &amp; Industry</div>
+        <p class="term-text">Technology companies providing compute credits, talent exchange, and technical mentorship. Brand alignment with Pakistan's AI future. Direct impact on sovereign AI capability.</p>
+      </div>
+      <div class="term" style="padding:0.2in 0.22in;">
+        <span class="term-label">Academic Collaborator</span>
+        <div class="term-name" style="font-size:12pt;">Universities &amp; Research</div>
+        <p class="term-text">Universities and research institutions. Joint research, shared datasets, student fellowships, co-authored publications. Advance the science while building Pakistani capacity.</p>
+      </div>
+      <div class="term" style="padding:0.2in 0.22in;">
+        <span class="term-label">Individual Supporter</span>
+        <div class="term-name" style="font-size:12pt;">Diaspora &amp; Global Citizens</div>
+        <p class="term-text">Pakistani diaspora and global citizens who believe in sovereign AI. Every contribution funds compute, talent, and open research. Join a community building Pakistan's intellectual infrastructure.</p>
+      </div>
+    </div>
+    <p class="overview-text">Zahin's non-profit structure ensures that every partnership serves the mission. There are no equity stakes to negotiate, no revenue shares to dispute. Partners contribute to sovereign AI for Pakistan &mdash; and receive the recognition, access, and impact that comes with building something that matters.</p>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">18 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 19 — CALL TO ACTION
+══════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <div class="cta-box" style="margin-bottom:0.25in;">
+      <span class="eyebrow">Next Steps</span>
+      <h3 class="section-title" style="font-size:22pt;">Pakistan's AI future starts<br>with $50,000</h3>
+      <p>Phase 1 costs less than a Tesla. It funds two engineers and three linguists for six months &mdash; enough to fine-tune Gemma for five Pakistani languages and prove that sovereign AI is achievable. The model will be open-weight, the research published, the data shared. Contact us to discuss how you can be part of building Pakistan's intellect.</p>
+    </div>
+    <span class="eyebrow" style="margin-bottom:0.12in;">What We Need from Each Sector</span>
+    <div class="deliverables-grid" style="grid-template-columns:1fr 1fr; margin-bottom:0.2in;">
+      <div class="del-card">
+        <div class="del-card-title" style="color:var(--pakistan-green);">Government</div>
+        <div class="del-card-desc">Designate Zahin as a National AI Policy implementation partner. Provide institutional endorsement and access to government data archives.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title" style="color:var(--pakistan-green);">Tech Companies</div>
+        <div class="del-card-desc">Provide compute credits and technical mentorship. Google, Microsoft, and AWS can accelerate sovereign AI with existing programs.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title" style="color:var(--pakistan-green);">Development Organizations</div>
+        <div class="del-card-desc">Fund Phase 1 research and data collection. $50,000 from a single grant produces Pakistan's first open-weight multilingual model.</div>
+      </div>
+      <div class="del-card">
+        <div class="del-card-title" style="color:var(--pakistan-green);">Academic Institutions</div>
+        <div class="del-card-desc">Joint research agreements and student fellowships. Embed Zahin's work within Pakistan's computer science curriculum.</div>
+      </div>
+    </div>
+    <div class="del-card" style="background:white; border:1px solid var(--parchment-dark); border-radius:10px; padding:0.16in 0.18in; margin-bottom:0.2in;">
+      <div class="del-card-title" style="color:var(--pakistan-green);">Diaspora</div>
+      <div class="del-card-desc">Contribute expertise, funding, and network access. You are building AI for other nations &mdash; now build it for yours.</div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-item">founders@zahin.ai</div>
+      <div class="contact-item">zahin.ai</div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">19 of 20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     PAGE 20 — REFERENCES
+══════════════════════ -->
+<div class="page page-white">
+  <div class="page-header">
+    <span class="logo-mark"><span style="font-size:10pt;color:var(--pakistan-green);opacity:0.6;margin-right:4px">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> zahin</span>
+    <span class="doc-label">White Paper</span>
+  </div>
+  <div class="page-body">
+    <span class="eyebrow">References</span>
+    <h2 class="section-title">Sources &amp; further reading</h2>
+    <ol class="ref-list">
+      <li>Hassan, M.T., Ahmed, J., &amp; Awais, M. (2026). &ldquo;Qalb: Arabic Script Language Model for Urdu.&rdquo; arXiv:2601.08141</li>
+      <li>Government of Pakistan, Ministry of IT &amp; Telecom. &ldquo;National Artificial Intelligence Policy 2025.&rdquo; Federal Cabinet Approved July 2025.</li>
+      <li>Technology Innovation Institute. &ldquo;Falcon Language Models.&rdquo; Abu Dhabi, UAE.</li>
+      <li>AI4Bharat, IIT Madras. &ldquo;IndicNLP Suite: Multilingual NLP for Indian Languages.&rdquo;</li>
+      <li>Google. &ldquo;Gemma: Open Models for Everyone.&rdquo; Technical Report.</li>
+      <li>Danantara Sovereign Wealth Fund. &ldquo;Indonesia AI National Roadmap.&rdquo; July 2025.</li>
+      <li>McKinsey &amp; Company. &ldquo;The Sovereign AI Agenda: Moving from Ambition to Reality.&rdquo; 2025.</li>
+      <li>Brookings Institution. &ldquo;AI Sovereignty: Balancing Autonomy and Interdependence.&rdquo; 2025.</li>
+    </ol>
+    <hr class="rule" style="margin-top:0.4in;">
+    <div style="text-align:center; padding-top:0.3in;">
+      <span class="zahin-wordmark" style="font-size:18pt; display:inline-block; margin-bottom:0.08in;"><span class="zahin-urdu" style="font-size:15pt;">&#x0630;&#x06C1;&#x06CC;&#x06BA;</span> Zahin</span>
+      <p style="font-size:9pt; color:var(--caption); line-height:1.6;">Sovereign AI for Pakistan<br>founders@zahin.ai &nbsp;&middot;&nbsp; zahin.ai</p>
+      <p style="font-size:7.5pt; color:var(--caption); margin-top:0.15in;">&#169; 2026 Zahin. This document is provided for informational purposes.<br>All data and projections are based on publicly available sources and internal estimates.</p>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-text">Zahin &mdash; Sovereign AI for Pakistan</span>
+    <span class="footer-text">20 of 20</span>
+  </div>
+</div>
+
+</body>
+</html>
