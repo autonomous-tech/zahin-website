@@ -49,9 +49,9 @@ export const articles: Article[] = [
     slug: "why-sovereign-ai",
     title: "Why Pakistan Needs Sovereign AI — And Why Now",
     excerpt:
-      "Every country without its own AI becomes a data colony. Pakistan has 240 million people, 64% under 30, and zero foundation models.",
+      "Every country without its own AI becomes a data colony. Pakistan has 240 million people, 64% under 30, and zero sovereign foundation models.",
     description:
-      "Pakistan has 240 million people and zero sovereign AI models. This position paper explains why sovereign AI is a national security imperative — and how Zahin plans to change that.",
+      "Pakistan has 240 million people and zero sovereign foundation models. This position paper explains why sovereign AI is a national security imperative — and how Zahin plans to change that.",
     date: "2026-04-10",
     category: "Position Paper",
     readingTime: "8 min read",
@@ -67,7 +67,7 @@ export const articles: Article[] = [
       {
         question: "Why does Pakistan need its own AI models?",
         answer:
-          "Pakistan has 240 million people — the world's 6th largest population — yet relies entirely on foreign AI systems for critical services like healthcare, legal processing, and education. Without sovereign models, Pakistan faces shutoff risk from geopolitical shifts and has no AI that understands its languages, culture, or legal framework.",
+          "Pakistan has 240 million people — the world's 6th largest population — yet has no foundation model trained on its languages and cultural context. Pakistani researchers have built task-specific models (Qalb, Alif, Qehwa), but the country still relies on foreign AI systems for critical services like healthcare, legal processing, and education. Without sovereign foundation models, Pakistan faces shutoff risk from geopolitical shifts and has no general-purpose AI that understands its languages, culture, or legal framework.",
       },
       {
         question: "How much does Pakistan invest in AI compared to other countries?",
@@ -77,14 +77,14 @@ export const articles: Article[] = [
       {
         question: "What is Zahin doing about Pakistan's AI gap?",
         answer:
-          "Zahin is a non-profit sovereign AI lab building open-weight foundation models fine-tuned for Pakistan's languages (Urdu, Punjabi, Pashto, Sindhi, Balochi). Phase 1 fine-tunes the best available open-weight models, progressing toward a fully indigenous model called Zahin-1.",
+          "Zahin is a non-profit sovereign AI lab building open-weight models fine-tuned for Pakistan's languages (Urdu, Punjabi, Pashto, Sindhi, Balochi). Phase 1 fine-tunes the best available open-weight models and ships them on consumer hardware — including budget smartphones. Phase 2 deploys in education, agriculture, and government services via on-device apps and WhatsApp. Phase 3 trains Zahin-1, Pakistan's first indigenous foundation model.",
       },
     ],
     blocks: [
       {
         type: "p",
         content:
-          "Pakistan stands at a critical juncture. With 240 million people — the world's 6th largest population — and 64% of its citizens under 30, the country has an extraordinary demographic advantage. Yet it has zero sovereign AI models. No foundation model understands Urdu grammar. No language model can process Punjabi legal documents. No AI system has been trained on Pakistan's cultural context.",
+          "Pakistan stands at a critical juncture. With 240 million people — the world's 6th largest population — and 64% of its citizens under 30, the country has an extraordinary demographic advantage. Yet it has zero sovereign foundation models. Pakistani researchers have built impressive task-specific models — Qalb for Urdu language understanding, Alif for Urdu instruction-following, Qehwa for Pashto — but no foundation model has been trained on Pakistan's full linguistic and cultural context. No model can process Punjabi legal documents. No AI system serves Sindhi or Balochi speakers at all.",
       },
       {
         type: "callout",
@@ -135,12 +135,12 @@ export const articles: Article[] = [
       {
         type: "p",
         content:
-          "Pakistan, as a nuclear state with complex geopolitical relationships, faces non-trivial shutoff risk. If access to GPT-5 or Gemini were restricted tomorrow, Pakistani hospitals, banks, courts, and schools would lose AI capabilities overnight — with no domestic alternative to fall back on.",
+          "Pakistan, as a nuclear state with complex geopolitical relationships, faces non-trivial shutoff risk. If access to GPT-5 or Gemini were restricted tomorrow, Pakistani hospitals, banks, courts, and schools would lose AI capabilities overnight — with no domestic alternative to fall back on. Open-weight models like LLaMA and Qwen mitigate this partially — once downloaded, they can't be revoked. But sovereignty requires more than downloaded weights. It requires the ability to train, adapt, evaluate, and deploy models independently — the full stack, not just the artifacts.",
       },
       {
         type: "blockquote",
         content:
-          "A nation that cannot run its own AI is a nation that has outsourced its cognitive infrastructure. In the 21st century, that is a form of dependency as dangerous as energy dependence.",
+          "Sovereignty is not just about possessing model weights — it is about the full stack: the ability to collect data, train models, evaluate quality, deploy on domestic infrastructure, and adapt to evolving needs without foreign permission. A nation that cannot do all of this has outsourced its cognitive infrastructure.",
       },
       { type: "h2", content: "The Language Crisis" },
       {
@@ -180,15 +180,31 @@ export const articles: Article[] = [
         type: "ol",
         content: "",
         items: [
-          "Phase 1 — Fine-Tune ($50K): Adapt the best open-weight models for Urdu, Punjabi, Pashto, Sindhi, and Balochi. Build evaluation benchmarks. Open-source everything.",
-          "Phase 2 — Deploy ($500K, 6–12 months): Build inference infrastructure on Pakistani soil. Partner with universities and government agencies for real-world deployment.",
+          "Phase 1 — Fine-Tune ($50K): Adapt the best open-weight models for Urdu, Punjabi, Pashto, Sindhi, and Balochi. Build evaluation benchmarks. Ship models that run on consumer hardware. Open-source everything.",
+          "Phase 2 — Deploy ($500K, 6–12 months): Build inference infrastructure accessible to ordinary Pakistanis — on-device, via WhatsApp, and through government partnerships. Pilot in education, agriculture, and government services. Partner with universities for domain-specific models.",
           "Phase 3 — Zahin-1 ($25M, 18–24 months): Train Pakistan's first indigenous foundation model from scratch — built on Pakistani data, for Pakistani needs, governed by Pakistani institutions.",
+        ],
+      },
+      { type: "h2", content: "What We Haven't Figured Out" },
+      {
+        type: "p",
+        content:
+          "We believe in this mission, but we won't pretend we have all the answers. Several hard problems remain unsolved — and we think being honest about them is more productive than handwaving past them.",
+      },
+      {
+        type: "ul",
+        content: "",
+        items: [
+          "Funding sustainability — Phase 1 can run on grants and initial capital. But grants run out, and a non-profit AI lab needs either sustained institutional funding or a revenue model to survive. We don't have that figured out yet.",
+          "Community governance — Zahin aims to serve Sindhi, Balochi, Pashto, and Shahmukhi Punjabi speakers. We need native speakers from these communities not just as data sources, but as decision-makers in how their languages are represented. We're building that advisory structure now.",
+          "Safety for high-stakes domains — Our roadmap mentions education and government. Healthcare and legal applications are further out — they require clinical validation, regulatory compliance, and liability frameworks that don't yet exist in Pakistan's AI landscape. We won't deploy in high-stakes domains until those safeguards are in place.",
+          "The gap between models and access — Building a good model is necessary but not sufficient. Reaching a farmer in rural Sindh or a student in Balochistan requires deployment infrastructure, device compatibility, and delivery channels (WhatsApp, USSD, offline apps) that we haven't built yet.",
         ],
       },
       {
         type: "p",
         content:
-          "The window is closing. Every month without sovereign AI capability widens the gap between Pakistan and its peers. But the window is still open — and 240 million people are waiting on the other side.",
+          "The window is closing. Every month without sovereign AI capability widens the gap between Pakistan and its peers. But the window is still open — and 240 million people are waiting on the other side. If you can help — as a funder, researcher, engineer, linguist, or community advisor — we want to hear from you.",
       },
     ],
   },
@@ -628,7 +644,7 @@ export const articles: Article[] = [
           "Evaluation infrastructure lags model development by 2-3 years. UrduBench (January 2026) is the first systematic Urdu reasoning benchmark. Nothing comparable exists for any other Pakistani language.",
           "Diacritization is unsolved. Models generate undiacritized Urdu because that's what the training data looks like. Downstream tasks like text-to-speech fail without diacritics.",
           "RTL generation behavior is undocumented for most models. LLMs generate text left-to-right internally regardless of target script — the rendering is an application-layer concern, but code-mixed text (Urdu + English) causes directionality errors.",
-          "Synthetic data augmentation backfires for Pakistani languages. A 2025 ACL paper found that LLaMA 3-based generative augmentation had negative impact on NER tasks for Shahmukhi, Sindhi, Urdu, and Pashto. Simpler augmentation techniques outperform LLM-generated data.",
+          "Synthetic data augmentation is task-dependent for Pakistani languages. A 2025 ACL paper found that LLaMA 3-based generative augmentation had negative impact on NER tasks for Shahmukhi, Sindhi, Urdu, and Pashto — simpler augmentation techniques outperformed LLM-generated data. However, Alif's success with GPT-4o-generated instruction data suggests synthetic augmentation may work for instruction-tuning even when it fails for structured NLP tasks. This boundary needs systematic testing.",
         ],
       },
 
@@ -737,6 +753,28 @@ export const articles: Article[] = [
         type: "p",
         content:
           "We also acknowledge that the researchers who have actually built Urdu LLMs — the Qalb team at Auburn University, the Alif team through Meta's LARGE initiative, the UrduLLaMA team, and Urdu NLP researchers at Pakistani institutions including NUST, LUMS, ITU, and COMSATS — have done the hard empirical work that this article synthesizes. Zahin's contribution here is the synthesis and the Pakistan-specific deployment lens, not the underlying research.",
+      },
+      { type: "h2", content: "What We Don't Know Yet" },
+      {
+        type: "p",
+        content:
+          "Honesty requires naming the unknowns, not just the knowns. Several critical questions remain open — and we don't think anyone in the Pakistani AI space has answered them yet.",
+      },
+      {
+        type: "ol",
+        content: "",
+        items: [
+          "Where does the training data come from? We've compared models in detail but haven't mapped the data landscape with equal rigor. How much clean Urdu text actually exists after deduplication and quality filtering? What about Sindhi, Pashto, and Balochi? For Punjabi Shahmukhi — which we estimate has roughly 50-65 million tokens of native digital text, making it arguably the world's most-spoken language with the least digital infrastructure — the data constraint may be more binding than the model constraint. We need a full data audit before committing to any training plan.",
+          "What does success look like? We plan to benchmark models, but we haven't defined what scores mean 'good enough for deployment' versus 'interesting but not useful.' Qalb achieved 90.34 on Urdu NLP tasks. Do we need to match that? Beat it? Or is 80% on a model that runs on a phone more valuable than 90% on a model that requires a server? We need to define these thresholds before running evaluations, not after.",
+          "Who validates the models for languages we don't speak? Zahin's founding team does not include native speakers of every target language. For Sindhi, Balochi, and Pashto in particular, we need community involvement — not as an afterthought, but as a structural requirement. We will not train on data from or claim to serve a language community without native speakers on our evaluation team. We're actively seeking advisors and collaborators from these communities.",
+          "How do we serve 240 million people? Our deployment tier analysis shows that 4B models can run on consumer hardware. But 'can run' and 'is accessible' are different things. We haven't designed the actual delivery mechanism — on-device app, WhatsApp integration, USSD for feature phones, or some combination. The serving infrastructure is as important as the model itself, and we haven't built it yet.",
+          "How do we sustain this? Phase 1 is grant-funded. That's fine for research, but it doesn't scale. We need a revenue model or sustained institutional funding to move from Phase 1 to Phase 2 and beyond. We don't have that figured out yet. If you have ideas — or funding — we want to hear from you.",
+        ],
+      },
+      {
+        type: "p",
+        content:
+          "We publish these unknowns because we think the Pakistani AI community benefits more from honest questions than from premature answers. If you're working on any of these problems — or if you're a native speaker of Sindhi, Balochi, Pashto, or Shahmukhi Punjabi and want to help — reach out.",
       },
       { type: "h2", content: "What We'll Test Next" },
       {
