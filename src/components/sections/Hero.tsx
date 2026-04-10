@@ -1,20 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <Image
-        src="/images/hero-pakistan-tech.webp"
-        alt=""
-        fill
-        className="object-cover opacity-10"
-        priority
-      />
-
-      {/* Geometric tessellation grid — the brainstorm pattern */}
+      {/* Geometric tessellation grid */}
       <div
         className="absolute inset-0 z-[1]"
         aria-hidden="true"

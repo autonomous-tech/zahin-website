@@ -6,17 +6,17 @@ import GeometricBorder from "@/components/geometry/GeometricBorder";
 
 const phases = [
   {
-    number: "01", title: "Fine-Tune", subtitle: "Now", active: true,
+    number: "01", title: "Fine-Tune", subtitle: "Now", raise: "$50K", active: true,
     description: "Fine-tune Google's Gemma and other open models for Urdu, Sindhi, Punjabi, Pashto, and Balochi. Build the largest curated dataset of Pakistani language and culture. Ship working models that prove capability.",
     deliverables: ["Gemma fine-tuned for 5 Pakistani languages", "Curated Pakistani language dataset", "Open-weight model release", "Benchmark against existing multilingual models"],
   },
   {
-    number: "02", title: "Deploy", subtitle: "6-12 months", active: false,
+    number: "02", title: "Deploy", subtitle: "6-12 months", raise: "$500K", active: false,
     description: "Deploy fine-tuned models in real-world Pakistani applications. Healthcare diagnostics in Urdu. Agricultural advisory in Sindhi. Legal document processing in all five languages.",
     deliverables: ["Healthcare NLP pilot (Urdu)", "Agricultural advisory system (Sindhi, Punjabi)", "Legal document processing", "Educational content generation"],
   },
   {
-    number: "03", title: "Zahin-1", subtitle: "18-24 months", active: false,
+    number: "03", title: "Zahin-1", subtitle: "18-24 months", raise: "$25M", active: false,
     description: "Build Pakistan's own foundation model from scratch. Trained on Pakistani data, optimized for Pakistani languages, designed for Pakistani needs. Open-weight. Sovereign. Ours.",
     deliverables: ["Zahin-1 foundation model", "Pakistani-first training data pipeline", "Sovereign compute infrastructure", "Open research publications"],
   },
@@ -42,7 +42,11 @@ export default function Vision() {
                 </div>
               </div>
               <h3 className="text-2xl font-display font-bold">{phase.title}</h3>
-              <p className="text-sm text-pakistan-green font-medium mt-1">{phase.subtitle}</p>
+              <div className="flex items-center gap-3 mt-1">
+                <p className="text-sm text-pakistan-green font-medium">{phase.subtitle}</p>
+                <span className="text-xs font-mono text-deep-ink/30">·</span>
+                <p className="text-sm font-mono font-bold text-deep-ink/70">{phase.raise}</p>
+              </div>
               <p className="mt-4 text-sm text-deep-ink/60 leading-relaxed">{phase.description}</p>
               <ul className="mt-6 space-y-2">
                 {phase.deliverables.map((d) => (
