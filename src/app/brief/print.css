@@ -1,0 +1,60 @@
+/*
+ * Print stylesheet for /brief
+ *
+ * Optimizes the commercial brief for Cmd+P → Save as PDF.
+ * Strips interactive chrome; preserves structure, typography, and visuals.
+ */
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.75in 0.6in;
+  }
+
+  /* Strip site chrome */
+  nav[aria-label],
+  header,
+  footer,
+  .no-print,
+  .brief-toc,
+  .brief-actions {
+    display: none !important;
+  }
+
+  /* Ensure white background + deep-ink text */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #1a1a2e !important;
+  }
+
+  /* Tight spacing; prevent awkward breaks */
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .brief-section,
+  .brief-visual,
+  figure,
+  table {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Links print as-is (no URL expansion cluttering the page) */
+  a {
+    color: #01796f;
+    text-decoration: none;
+  }
+  a::after {
+    content: none;
+  }
+
+  /* Ensure hero and major visuals fit on their own pages when needed */
+  .brief-hero {
+    break-after: page;
+  }
+}
