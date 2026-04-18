@@ -1,7 +1,7 @@
 {/*
-  Commercial Brief — Zahin
-  Prose content. Visual React components injected via MDX.
-  Phase 4 writes the prose; this is a scaffold placeholder.
+  Zahin — Commercial Brief
+  Audience: first reader Haider Raza (ex-COO DealCart); reused for future funders.
+  Doctrine spine: JF-17 thesis. Lean capital. Open-weight base. Sovereign mission.
 */}
 
 import BriefHero from "@/components/brief/Hero";
@@ -12,49 +12,93 @@ import BriefStructure from "@/components/brief/Structure";
 import BriefCapitalLadder from "@/components/brief/CapitalLadder";
 import BriefInvitation from "@/components/brief/Invitation";
 
-# Zahin — the Commercial Brief
+# The commercial shape of Zahin
 
-{/* §01 — Why now · the JF-17 thesis */}
+**A market brief — not a pitch.** What sovereign AI for Pakistan can actually become, who pays for it, and what it takes to build. Written for operators, patrons, and anyone trying to figure out where they fit. Rizwan Qaiser and Abdullah Abid, April 2026.
+
+---
 
 ## Why now — the JF-17 thesis
 
 <BriefHero />
 
-_Prose placeholder. Phase 4 will write this section._
+On 7 May 2025, Pakistani fighters brought down at least one Indian Rafale over Pahalgam. The kill wasn&rsquo;t made by the flashiest jet in the sky. It was a **J-10CE** firing a **PL-15** missile — guided not by its own radar, but by a **Saab 2000 Erieye AWACS** flying behind the line. Chinese airframe, Chinese missile, Swedish eyes in the sky, Pakistani pilot. A networked stack, cheaper than anything Dassault sells, that won a duel against a frontier platform.
+
+That&rsquo;s the doctrine. Pakistan doesn&rsquo;t fight the frontier. Pakistan builds what wins its region — by wiring together the right parts, cheap, fast, and with the right partners. The JF-17 is the recognisable face of that posture; Operation Sindoor was the posture working in live combat for the first time on the world stage.
+
+Zahin is the same play, moved from aerospace to intelligence. We don&rsquo;t need to out-train OpenAI. We need to be the team that owns the regional AI layer for 240 million people before anyone else does — using the same doctrine: open-weight foundations, targeted fine-tuning, cheap compute, sovereign operation, the right partners.
+
+### The cost of intelligence has collapsed
 
 <BriefCostCurve />
 
-_Prose placeholder — cost curve commentary._
+The commodity tier didn&rsquo;t exist three years ago. When GPT-4 launched in March 2023, the only way to get that level of intelligence was to pay OpenAI $30 per million tokens. By late 2024, Google was offering near-equivalent quality at $0.0375 per million through Flash-8B. Three years, 800×. That is the fastest price collapse of a strategic industrial input since bandwidth.
 
-{/* §02 — What you can actually build */}
+Those are the **commercial** numbers. Zahin doesn&rsquo;t pay them. We build on **open-weight** models — Gemma 4, Qwen3, LLaMA — where the license cost is zero and the only meaningful spend is the GPU hours to fine-tune and serve. Gemma 4 shipped 2 April 2026 under an Apache 2.0 license — the first time Google has released a Gemma generation with no MAU cap, no AUP enforcement, no sovereign-deployment restrictions. The floor of our cost base fell to effectively zero the day that happened.
+
+### Sovereignty as a tailwind
+
+Meanwhile, reliability of access to foreign AI is quietly eroding for Pakistan-based users. OpenAI already enforces PK-specific compliance rules. Anthropic has signalled caution. The realistic scenario isn&rsquo;t dramatic sanctions — it&rsquo;s a slow drift where critical Pakistani workloads silently lose access, get throttled, or fail a compliance review. Every week that drift continues makes the case for a domestic AI layer a little less abstract.
+
+Put the three together — collapsing cost, open-weight base models hitting commercial-grade quality, slow erosion of foreign-API reliability — and there is a window between **2027 and 2030** where whoever has already positioned in the Pakistani AI layer owns it. That&rsquo;s the window we&rsquo;re building for. Not to race to the frontier. To be *first and credible* in the region.
+
+---
 
 ## What you can actually build
 
+The thesis only matters if the products are real. Here are ten things Zahin&rsquo;s first model — a 4-to-8 billion parameter open-weight fine-tune, running on consumer GPUs — can deliver within 18 months. All ten exist as prototypes or published proof-points elsewhere; none of them require breakthrough research.
+
 <BriefUseCaseGrid />
 
-_Prose placeholder — use-case narrative._
+The evidence the floor works is already published. **Qalb 1.0**, out of Auburn University, fine-tuned LLaMA 3.1 8B on 1.84 billion Urdu tokens and scored 90.34 across seven Urdu NLP tasks — a 44-point jump over the base model, running quantised on a single RTX 4090. **Alif 1.0**, funded through Meta&rsquo;s LARGE initiative, was the first purpose-built Urdu instruction-tuned model — 87.1 on the same benchmark, at a total training cost of *under $100*. **UrduLLaMA 1.0** delivered meaningful machine-translation gains with just 128 million tokens of continued pretraining.
 
-{/* §03 — The markets — who pays, for what, at what scale */}
+The Pakistani research community has quietly proven the recipe works. What&rsquo;s missing isn&rsquo;t capability; it&rsquo;s a team that turns these research artefacts into deployed products that reach a 30-million-person market. That team doesn&rsquo;t exist yet. Zahin is that team.
 
-## The markets
+The ten use cases on the grid aren&rsquo;t forecasts. They&rsquo;re the menu of what ships once the first model exists and the first million dollars has been spent. Some land as NGO-deployed tools (health triage, legal aid). Some land as government services (agri advisor, gov service chat). Some land as commercial products (banking, telco). A few land as flagship consumer-facing AI experiences (the tutor, the translator). The brief doesn&rsquo;t pick. The operator does, once we&rsquo;re live.
+
+---
+
+## The markets — who pays, for what, at what scale
 
 <BriefMarketMap />
 
-_Prose placeholder — market-by-market detail._
+Sovereign AI sounds like a government play until you map the actual buyers. There are six segments, each with its own buyer profile, pricing logic, and timeline. They compound — some carry the mission in year one, others carry the P&amp;L in year five.
 
-{/* §04 — How it gets built — the cheap way */}
+**Development finance** is the nearest money. The UK FCDO + Canada IDRC **AI4D** programme is a £38 million initiative with CAD$100K-to-$1M grants expressly aimed at multilingual AI research in low- and middle-income countries. The **Gates Foundation Grand Challenges AI** track disburses $100K checks to teams building LLMs for underserved health, agriculture, and education contexts. **Meta&rsquo;s AI for Development Funders Collaborative**, a $10M commitment announced in February 2025 for African languages, has signalled interest in expanding beyond Africa — and a Pakistan-focused equivalent is an obvious next step. The **World Bank&rsquo;s Knowledge for Change Program** lists AI for Development as a priority with $100–300K grants. This is the segment that unlocks the first three rungs of the capital ladder.
 
-## How it gets built
+**Government** is the biggest long-term prize and the slowest. Pakistan has no national AI strategy yet, and federal procurement moves in multi-year cycles. But provincial governments — particularly Khyber Pakhtunkhwa and Punjab — have been more experimental, and citizen-service deployments (BISP chatbots, NADRA assistance, utility help desks) are procurable at the provincial level without federal sign-off. Expect three to five years before a meaningful federal deal. Expect individual provincial pilots to move in year two or three.
+
+**Enterprise** — banks, telcos, fintechs — is where the margin lives, once trust is established. Pakistani sales cycles run 12–18 months. Nothing here ships before year two. The precedent that the segment *exists* at scale is Indian: **Sarvam AI** raised $41M combined seed and Series A in December 2023, and is currently deploying for Indian banks, UIDAI, and the IndiaAI Mission. Sarvam is for-profit and VC-backed — a different entity type than Zahin — but it proves the demand, which was the open question.
+
+**Own products** is where the high-revenue ceiling lives. This isn&rsquo;t SaaS. It&rsquo;s packaged models distributed as cloud APIs — Zahin Urdu-Legal, Zahin Agri-Punjabi, Zahin Gov-Sindh — sold through AWS Bedrock and Google Vertex marketplaces at usage-based pricing. High impact because it puts sovereign models into thousands of downstream apps. Long runway, because it requires credible models first. Year 3 and beyond.
+
+**Consumer** is the mission, not the profit centre. Pakistan has 116 million internet users and approximately 52 million active WhatsApp accounts. An AI layer that serves this population — via WhatsApp, Telegram, or a custom app architected for cost — sits on the revenue floor. WhatsApp Business API economics are workable for a non-profit if the product is built around user-initiated sessions and utility templates; at a million users, the delivery cost lands between $600K and $1M a year, easily covered by modest donor funding. The money here is subsidised access, not ARPU. The point is reach.
+
+**Diaspora and religious** rounds out the six. Roughly 9 million Pakistanis live abroad — Gulf, UK, US, Canada — and tend to be reliable patrons of cultural and educational institutions back home. Thirty thousand madrasahs and a long tail of mosques and Islamic scholarly networks are natural partners for Arabic-and-Urdu aware AI tooling. This segment funds flagship products that carry identity weight. Modest revenue; disproportionate credibility.
+
+Taken together: **development finance and patronage get Zahin started, enterprise and own products fund the flywheel once it&rsquo;s turning, consumer carries the mission.**
+
+---
+
+## How it gets built — the cheap way
 
 <BriefStructure />
 
-_Prose placeholder — structure narrative._
+Zahin is a non-profit. That&rsquo;s the whole corporate shape at the outset. Capital in is philanthropic or catalytic — grants, patronage, development finance — not equity. What we produce (models, datasets, evaluation infrastructure) is open-sourced. That matters for sovereignty (no one can revoke what&rsquo;s already published), and it matters for trust (donors fund visible public goods, not private upside).
+
+Later, once the first models are credible and first markets have moved, an earned-revenue structure can attach — probably a for-profit subsidiary that licenses Zahin&rsquo;s IP and serves enterprise customers, with the margin flowing back to the lab. That&rsquo;s the **Mozilla** / **Allen Institute** pattern: non-profit foundation holds the mission; commercial arm earns the ongoing cost of running it. But that&rsquo;s a Year-3 conversation. Day one is clean and simple — a lab that ships.
+
+The reference class is **AI4Bharat** at IIT Madras: an academic non-profit that built India&rsquo;s open multilingual AI backbone — IndicTrans, IndicBERT, Shrutilipi — on about $8 million of philanthropic and government grant funding over three years. AI4Bharat&rsquo;s models now power Bhashini, the Supreme Court&rsquo;s SUVAS translation system, NPCI&rsquo;s UPI voice interface, and the Kisan e-Mitra agricultural chatbot. Upstream is **SEA-LION** at AI Singapore, a government-backed programme with roughly $52 million in National Research Foundation funding. Zahin&rsquo;s ambition fits cleanly between those two floors.
 
 <BriefCapitalLadder />
 
-_Prose placeholder — capital path commentary._
+The capital is lean because the thesis is lean. A senior engineer in Pakistan costs $5-10K a month; a junior costs $3-5K. Fine-tuning Gemma 4 or Qwen3 on Pakistani languages runs about $15-25K per full training cycle — the Qalb team proved the number. There is no frontier-scale training on this roadmap, ever: Zahin-1 in Year 3-4 is **continued pretraining on an open base**, not from-scratch foundation training. That&rsquo;s the difference between $5-10M and $100M+, and it&rsquo;s why the ladder stops where it does.
 
-{/* §05 — Find your place */}
+Every rung is **falsifiable**. $50K buys a shipped prototype in Urdu within six months — if it doesn&rsquo;t ship, nothing further gets raised. $250K buys a full five-language model and the first vertical. $1M buys production and the first paid pilot. $5M buys Zahin-1 and regional expansion. Each rung earns the next; nothing is raised ahead of its proof point. This is catalytic capital discipline, not a J-curve pitch.
+
+What already exists, as of April 2026: the brand, the domain, the website, a published position paper on sovereign AI for Pakistan, a research survey comparing every major open-weight model for Pakistani-language fine-tuning, a network of interested researchers and partners, and the two of us — Rizwan Qaiser and Abdullah Abid — committed to making this real. What&rsquo;s missing: a CEO-shaped human to drive the commercial side, the first $50K, and the first model shipped. In that order.
+
+---
 
 ## Find your place
 
